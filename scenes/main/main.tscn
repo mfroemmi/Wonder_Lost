@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://btcwjruvsyi8v"]
+[gd_scene load_steps=10 format=3 uid="uid://btcwjruvsyi8v"]
 
 [ext_resource type="PackedScene" uid="uid://mm4fib8gds8v" path="res://scenes/terrain/rocks.tscn" id="1_jrx1x"]
 [ext_resource type="PackedScene" uid="uid://7ecyw24x8ek3" path="res://scenes/objects/chest.tscn" id="1_s6nbt"]
 [ext_resource type="PackedScene" uid="uid://m34ge5n2y6kq" path="res://scenes/character/stone_buddy.tscn" id="2_8xbvx"]
+[ext_resource type="PackedScene" uid="uid://bfc6muihiuy8u" path="res://scenes/objects/shell.tscn" id="3_0bgje"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bd8d6"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -46,4 +47,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -11.5697)
 [node name="Chest" parent="." instance=ExtResource("1_s6nbt")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, -4.63194)
 
+[node name="shell" parent="." instance=ExtResource("3_0bgje")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 5, 0, 2)
+
 [node name="StoneBuddy" parent="." instance=ExtResource("2_8xbvx")]
+
+[node name="shell2" parent="." instance=ExtResource("3_0bgje")]
+transform = Transform3D(-0.00989204, 0, -0.0995095, 0, 0.1, 0, 0.0995095, 0, -0.00989204, 6.04248, 0, 1.19261)
