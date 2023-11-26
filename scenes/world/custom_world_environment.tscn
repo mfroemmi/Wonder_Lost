@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://7vpbb7j0wes1"]
+
+[sub_resource type="Environment" id="Environment_p8hmw"]
+background_energy_multiplier = 0.2
+sdfgi_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.025
+
+[node name="CustomWorldEnvironment" type="WorldEnvironment"]
+environment = SubResource("Environment_p8hmw")
