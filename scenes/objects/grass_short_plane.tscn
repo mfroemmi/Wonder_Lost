@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://tk2eflh7qtvg"]
+
+[ext_resource type="PackedScene" uid="uid://bbugnn0jjkvpj" path="res://scenes/objects/grass_short.tscn" id="1_gsehh"]
+
+[node name="Grass_Short_Plane" type="Node3D"]
+
+[node name="grass_short" parent="." instance=ExtResource("1_gsehh")]
+
+[node name="grass_short2" parent="." instance=ExtResource("1_gsehh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="grass_short3" parent="." instance=ExtResource("1_gsehh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+
+[node name="grass_short4" parent="." instance=ExtResource("1_gsehh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)

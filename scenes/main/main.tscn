@@ -1,16 +1,28 @@
-[gd_scene load_steps=9 format=3 uid="uid://btcwjruvsyi8v"]
+[gd_scene load_steps=16 format=3 uid="uid://btcwjruvsyi8v"]
 
 [ext_resource type="PackedScene" uid="uid://7vpbb7j0wes1" path="res://scenes/world/custom_world_environment.tscn" id="1_jbpyi"]
 [ext_resource type="PackedScene" uid="uid://mm4fib8gds8v" path="res://scenes/terrain/rocks.tscn" id="1_jrx1x"]
 [ext_resource type="PackedScene" uid="uid://7ecyw24x8ek3" path="res://scenes/objects/chest.tscn" id="1_s6nbt"]
 [ext_resource type="PackedScene" uid="uid://m34ge5n2y6kq" path="res://scenes/character/stone_buddy.tscn" id="2_8xbvx"]
+[ext_resource type="Texture2D" uid="uid://bj1af7kxdjumt" path="res://textures/sandy_gravel/sandy_gravel_diff_4k.png" id="2_e2501"]
 [ext_resource type="PackedScene" uid="uid://bfc6muihiuy8u" path="res://scenes/objects/shell.tscn" id="3_0bgje"]
+[ext_resource type="Texture2D" uid="uid://cj6a5u2v3liwj" path="res://textures/sandy_gravel/sandy_gravel_nor_gl_4k.png" id="3_rc0ub"]
+[ext_resource type="Texture2D" uid="uid://cdvwldr6ehwpr" path="res://textures/sandy_gravel/sandy_gravel_rough_4k.png" id="4_oeuy6"]
+[ext_resource type="PackedScene" uid="uid://uqfry7sfeu2n" path="res://scenes/objects/grass_normal.tscn" id="6_kcmh8"]
+[ext_resource type="PackedScene" uid="uid://qrv36u87xk77" path="res://assets/objects/grass/grass_short.glb" id="7_lh7vv"]
+[ext_resource type="PackedScene" uid="uid://tk2eflh7qtvg" path="res://scenes/objects/grass_short_plane.tscn" id="8_lqtem"]
+[ext_resource type="PackedScene" uid="uid://dv3h2niliheuc" path="res://scenes/objects/grass_collectable.tscn" id="9_5tdkx"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_0w1lp"]
 size = Vector2(15, 15)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_msvb5"]
-albedo_color = Color(0.909804, 0.803922, 0.647059, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ia1pf"]
+albedo_texture = ExtResource("2_e2501")
+metallic_specular = 0.0
+roughness_texture = ExtResource("4_oeuy6")
+normal_enabled = true
+normal_texture = ExtResource("3_rc0ub")
+uv1_scale = Vector3(10, 10, 10)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_gnm76"]
 data = PackedVector3Array(10, 0, 10, -10, 0, 10, 10, 0, -10, -10, 0, 10, -10, 0, -10, 10, 0, -10)
@@ -59,7 +71,7 @@ omni_range = 10.0
 transform = Transform3D(1.75, 0, 0, 0, 1.75, 0, 0, 0, 1.75, 0, 0, 0)
 mesh = SubResource("PlaneMesh_0w1lp")
 skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_msvb5")
+surface_material_override/0 = SubResource("StandardMaterial3D_ia1pf")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="World/Ground"]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
@@ -81,3 +93,15 @@ transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 5.15361, 0.00648499, 2.
 
 [node name="Shell2" parent="." instance=ExtResource("3_0bgje")]
 transform = Transform3D(-0.00989204, 0, -0.0995095, 0, 0.1, 0, 0.0995095, 0, -0.00989204, 6.04248, 0, 1.19261)
+
+[node name="grass_normal" parent="." instance=ExtResource("6_kcmh8")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, -3.31159, 0, 4)
+
+[node name="grass_short" parent="." instance=ExtResource("7_lh7vv")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, -2.85791, 0, 4.42808)
+
+[node name="Grass_Short_Plane" parent="." instance=ExtResource("8_lqtem")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -2.13643, 0, 3.43925)
+
+[node name="grass_collectable" parent="." instance=ExtResource("9_5tdkx")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, -1.51341, 0, 4.04199)
