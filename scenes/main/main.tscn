@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://btcwjruvsyi8v"]
+[gd_scene load_steps=18 format=3 uid="uid://btcwjruvsyi8v"]
 
 [ext_resource type="PackedScene" uid="uid://7vpbb7j0wes1" path="res://scenes/world/custom_world_environment.tscn" id="1_jbpyi"]
 [ext_resource type="PackedScene" uid="uid://mm4fib8gds8v" path="res://scenes/terrain/rocks.tscn" id="1_jrx1x"]
@@ -8,10 +8,12 @@
 [ext_resource type="PackedScene" uid="uid://bfc6muihiuy8u" path="res://scenes/objects/shell.tscn" id="3_0bgje"]
 [ext_resource type="Texture2D" uid="uid://cj6a5u2v3liwj" path="res://textures/sandy_gravel/sandy_gravel_nor_gl_4k.png" id="3_rc0ub"]
 [ext_resource type="Texture2D" uid="uid://cdvwldr6ehwpr" path="res://textures/sandy_gravel/sandy_gravel_rough_4k.png" id="4_oeuy6"]
-[ext_resource type="PackedScene" uid="uid://uqfry7sfeu2n" path="res://scenes/objects/grass_normal.tscn" id="6_kcmh8"]
+[ext_resource type="PackedScene" uid="uid://bxptxteivbgjd" path="res://scenes/manager/item_spawn_manager.tscn" id="5_cbge5"]
+[ext_resource type="PackedScene" uid="uid://uqfry7sfeu2n" path="res://scenes/objects/grass/grass_normal.tscn" id="6_kcmh8"]
 [ext_resource type="PackedScene" uid="uid://qrv36u87xk77" path="res://assets/objects/grass/grass_short.glb" id="7_lh7vv"]
-[ext_resource type="PackedScene" uid="uid://tk2eflh7qtvg" path="res://scenes/objects/grass_short_plane.tscn" id="8_lqtem"]
-[ext_resource type="PackedScene" uid="uid://dv3h2niliheuc" path="res://scenes/objects/grass_collectable.tscn" id="9_5tdkx"]
+[ext_resource type="PackedScene" uid="uid://tk2eflh7qtvg" path="res://scenes/objects/grass/grass_short_plane.tscn" id="8_lqtem"]
+[ext_resource type="PackedScene" uid="uid://dv3h2niliheuc" path="res://scenes/objects/grass/grass_collectable.tscn" id="9_5tdkx"]
+[ext_resource type="PackedScene" uid="uid://b0r5vk50kpx5o" path="res://scenes/objects/wood_stick.tscn" id="13_fkyjy"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_0w1lp"]
 size = Vector2(15, 15)
@@ -79,7 +81,9 @@ transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Ground/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_gnm76")
 
-[node name="StoneBuddy" parent="." instance=ExtResource("2_8xbvx")]
+[node name="ItemSpawnManager" parent="." instance=ExtResource("5_cbge5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.27674, 0.516276, 0)
+item_scene = ExtResource("13_fkyjy")
 
 [node name="Rocks" parent="." instance=ExtResource("1_jrx1x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -11.5697)
@@ -108,3 +112,7 @@ transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, -1.51341, 0, 4.04199
 
 [node name="grass_collectable2" parent="." instance=ExtResource("9_5tdkx")]
 transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, -2.81351, 0, 3.64591)
+
+[node name="entities_layer" type="Node3D" parent="." groups=["entities_layer"]]
+
+[node name="StoneBuddy" parent="entities_layer" instance=ExtResource("2_8xbvx")]

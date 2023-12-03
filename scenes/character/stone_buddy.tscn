@@ -385,6 +385,7 @@ mesh = SubResource("ArrayMesh_mn518")
 skin = SubResource("Skin_xcqw1")
 
 [node name="Torso" type="MeshInstance3D" parent="Skelett/Skeleton3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_d1qdq")
 skin = SubResource("Skin_xcqw1")
 

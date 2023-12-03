@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0r5vk50kpx5o"]
+
+[ext_resource type="PackedScene" uid="uid://b32i62cqg2k8h" path="res://assets/objects/wood_stick.glb" id="1_cj5xx"]
+
+[node name="wood_stick" instance=ExtResource("1_cj5xx")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)

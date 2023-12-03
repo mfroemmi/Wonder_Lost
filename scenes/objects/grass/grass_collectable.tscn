@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dv3h2niliheuc"]
 
-[ext_resource type="PackedScene" uid="uid://dxdiho2knwm0u" path="res://assets/objects/grass/grass_collectable.glb" id="1_v7qtt"]
-[ext_resource type="Script" path="res://scenes/objects/grass_collectable.gd" id="2_bt8hg"]
+[ext_resource type="PackedScene" uid="uid://dxdiho2knwm0u" path="res://assets/objects/grass/grass_collectable.glb" id="1_1q0nx"]
+[ext_resource type="Script" path="res://scenes/objects/grass/grass_collectable.gd" id="2_mvf7w"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_g4vg8"]
 _surfaces = [{
@@ -28,8 +28,8 @@ size = Vector3(1.8369, 4.5, 2.8539)
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_yok1m"]
 radius = 7.0
 
-[node name="grass_collectable" instance=ExtResource("1_v7qtt")]
-script = ExtResource("2_bt8hg")
+[node name="grass_collectable" instance=ExtResource("1_1q0nx")]
+script = ExtResource("2_mvf7w")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Grass_000" index="0"]
 visible = false

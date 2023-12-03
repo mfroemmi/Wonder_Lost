@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://tk2eflh7qtvg"]
 
-[ext_resource type="PackedScene" uid="uid://bbugnn0jjkvpj" path="res://scenes/objects/grass_short.tscn" id="1_gsehh"]
+[ext_resource type="PackedScene" uid="uid://bbugnn0jjkvpj" path="res://scenes/objects/grass/grass_short.tscn" id="1_gsehh"]
 
 [node name="Grass_Short_Plane" type="Node3D"]
 
