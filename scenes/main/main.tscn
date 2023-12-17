@@ -75,15 +75,22 @@ mesh = SubResource("PlaneMesh_0w1lp")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_ia1pf")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="World/Ground"]
+[node name="Ground" type="StaticBody3D" parent="World/Ground" groups=["spawn_collider"]]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Ground/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Ground/Ground"]
 shape = SubResource("ConcavePolygonShape3D_gnm76")
 
-[node name="ItemSpawnManager" parent="." instance=ExtResource("5_cbge5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.27674, 0.516276, 0)
+[node name="WoodStickSpawnManager" parent="." instance=ExtResource("5_cbge5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.41661, 0.888896, -6.699)
 item_scene = ExtResource("13_fkyjy")
+spawn_radius = 7
+max_items = 30
+
+[node name="ShellSpawnManager" parent="." instance=ExtResource("5_cbge5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.81537, 0, -4.83724)
+item_scene = ExtResource("3_0bgje")
+max_items = 10
 
 [node name="Rocks" parent="." instance=ExtResource("1_jrx1x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -11.5697)
