@@ -319,7 +319,7 @@ radius = 1.69255
 [sub_resource type="SphereShape3D" id="SphereShape3D_nt2iq"]
 radius = 3.1024
 
-[node name="rocks" type="StaticBody3D"]
+[node name="Rocks" type="StaticBody3D"]
 
 [node name="Stone1" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.999552, 0.0299229, 0, -0.0299229, -0.999552, 0, 0, 0, 1, 1.08085, 2.0043, 0)

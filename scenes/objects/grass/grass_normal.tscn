@@ -2,4 +2,4 @@
 
 [ext_resource type="PackedScene" uid="uid://ctrjng4uiodjv" path="res://assets/objects/grass/grass_normal.glb" id="1_eerxp"]
 
-[node name="grass_normal" instance=ExtResource("1_eerxp")]
+[node name="GrassNormal" instance=ExtResource("1_eerxp")]

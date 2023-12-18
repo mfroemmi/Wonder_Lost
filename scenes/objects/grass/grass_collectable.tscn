@@ -28,7 +28,7 @@ size = Vector3(1.8369, 4.5, 2.8539)
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_yok1m"]
 radius = 7.0
 
-[node name="grass_collectable" instance=ExtResource("1_1q0nx")]
+[node name="GrassCollectable" instance=ExtResource("1_1q0nx")]
 script = ExtResource("2_mvf7w")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Grass_000" index="0"]

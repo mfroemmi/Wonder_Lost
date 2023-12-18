@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://dppy54ln7t2cf"]
+
+[ext_resource type="Script" path="res://scenes/component/collectable_component.gd" id="1_didyv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ngd8h"]
+size = Vector3(5.10252, 4.5, 5.0327)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_muddh"]
+radius = 5.0
+
+[node name="CollectableComponent" type="Node3D"]
+script = ExtResource("1_didyv")
+
+[node name="Area3DMouseCollision" type="Area3D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3DMouseCollision"]
+shape = SubResource("BoxShape3D_ngd8h")
+
+[node name="CollisionArea3D" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CollisionArea3D"]
+shape = SubResource("CylinderShape3D_muddh")
+
+[connection signal="input_event" from="Area3DMouseCollision" to="." method="_on_area_3d_mouse_collision_input_event"]
+[connection signal="mouse_entered" from="Area3DMouseCollision" to="." method="_on_area_3d_mouse_entered"]
+[connection signal="mouse_exited" from="Area3DMouseCollision" to="." method="_on_area_3d_mouse_exited"]
