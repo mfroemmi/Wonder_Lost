@@ -1,5 +1,6 @@
-[gd_scene load_steps=18 format=3 uid="uid://btcwjruvsyi8v"]
+[gd_scene load_steps=22 format=3 uid="uid://btcwjruvsyi8v"]
 
+[ext_resource type="Script" path="res://scenes/main/main.gd" id="1_fafct"]
 [ext_resource type="PackedScene" uid="uid://7vpbb7j0wes1" path="res://scenes/world/custom_world_environment.tscn" id="1_jbpyi"]
 [ext_resource type="PackedScene" uid="uid://mm4fib8gds8v" path="res://scenes/terrain/rocks.tscn" id="1_jrx1x"]
 [ext_resource type="PackedScene" uid="uid://7ecyw24x8ek3" path="res://scenes/objects/chest.tscn" id="1_s6nbt"]
@@ -14,6 +15,9 @@
 [ext_resource type="PackedScene" uid="uid://tk2eflh7qtvg" path="res://scenes/objects/grass/grass_short_plane.tscn" id="8_lqtem"]
 [ext_resource type="PackedScene" uid="uid://dv3h2niliheuc" path="res://scenes/objects/grass/grass_collectable.tscn" id="9_5tdkx"]
 [ext_resource type="PackedScene" uid="uid://b0r5vk50kpx5o" path="res://scenes/objects/wood_stick.tscn" id="13_fkyjy"]
+[ext_resource type="PackedScene" uid="uid://b7vf6qkul3k7h" path="res://inventory/inventory.tscn" id="15_2wl7j"]
+[ext_resource type="Resource" uid="uid://dpv42mt3mtcg3" path="res://test_inventory.tres" id="15_a6wpl"]
+[ext_resource type="Script" path="res://inventory/inventory_interface.gd" id="17_a264a"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_0w1lp"]
 size = Vector2(15, 15)
@@ -30,6 +34,7 @@ uv1_scale = Vector3(10, 10, 10)
 data = PackedVector3Array(10, 0, 10, -10, 0, 10, 10, 0, -10, -10, 0, 10, -10, 0, -10, 10, 0, -10)
 
 [node name="Main" type="Node3D"]
+script = ExtResource("1_fafct")
 
 [node name="World" type="Node3D" parent="."]
 
@@ -43,7 +48,7 @@ visible = false
 shadow_enabled = true
 
 [node name="OmniLight3D" type="OmniLight3D" parent="World/Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.75449, 1.73119, -2.70588)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.75449, 3.2077, -2.70588)
 light_color = Color(0.545098, 0.32549, 0.631373, 1)
 light_energy = 5.0
 shadow_enabled = true
@@ -52,7 +57,7 @@ shadow_blur = 5.0
 omni_range = 10.0
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="World/Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.75996, 1.25673, -7.86405)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.75996, 3.25648, -7.86405)
 light_color = Color(0.588235, 0.741176, 0.792157, 1)
 light_energy = 3.0
 shadow_enabled = true
@@ -61,7 +66,7 @@ shadow_blur = 5.0
 omni_range = 10.0
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="World/Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.72733, 1.35101, 4.81682)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.72733, 3.13286, 4.81682)
 light_color = Color(0.588235, 0.741176, 0.792157, 1)
 light_energy = 3.0
 shadow_enabled = true
@@ -118,3 +123,25 @@ transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, -2.81351, 0, 3.64591
 [node name="EntitiesLayer" type="Node3D" parent="." groups=["entities_layer"]]
 
 [node name="StoneBuddy" parent="EntitiesLayer" instance=ExtResource("2_8xbvx")]
+inventory_data = ExtResource("15_a6wpl")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="InventoryInterface" type="Control" parent="UI"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("17_a264a")
+metadata/_edit_use_anchors_ = true
+
+[node name="PlayerInventory" parent="UI/InventoryInterface" instance=ExtResource("15_2wl7j")]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 30.0
+offset_right = 70.0
+offset_bottom = 70.0
