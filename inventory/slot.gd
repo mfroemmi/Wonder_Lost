@@ -5,7 +5,6 @@ signal slot_clicked(index: int, button: int)
 @onready var texture_rect = $MarginContainer/TextureRect
 @onready var quantity_label = $MarginContainer2/QuantityLabel
 
-
 func set_slot_data(slot_data: SlotData):
 	var item_data = slot_data.item_data
 	texture_rect.texture = item_data.texture
@@ -14,7 +13,8 @@ func set_slot_data(slot_data: SlotData):
 	if slot_data.quantity > 1:
 		quantity_label.text = "x%s" % slot_data.quantity
 		quantity_label.show()
-
+	else:
+		quantity_label.hide()
 
 func _on_gui_input(event):
 	if event is InputEventMouseButton \
