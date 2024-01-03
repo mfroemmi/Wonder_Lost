@@ -299,7 +299,7 @@ radius = 3.0
 [sub_resource type="BoxShape3D" id="BoxShape3D_vm5od"]
 size = Vector3(4.2, 2, 2.5)
 
-[node name="Chest" type="StaticBody3D"]
+[node name="Chest" type="StaticBody3D" groups=["external_inventory"]]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 collision_layer = 8
 script = ExtResource("1_mjvvg")
@@ -379,3 +379,7 @@ shape = SubResource("CylinderShape3D_u5ju3")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_vm5od")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

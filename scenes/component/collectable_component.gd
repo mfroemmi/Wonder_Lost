@@ -3,9 +3,11 @@ extends Node3D
 @export var outlineMesh: MeshInstance3D
 @export var mouseCollision: CollisionObject3D
 @export var bodyCollision: Area3D
+@export var slot_data: SlotData
 
-var isBodyEntered: bool = false
 var isMouseEntered: bool = false
+var other_body: Node3D
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,16 +19,16 @@ func _ready():
 	mouseCollision.mouse_exited.connect(on_area_3d_mouse_exited)
 
 
-func on_body_entered(other_body: Node3D):
-	isBodyEntered = true
+func on_body_entered(_other_body: Node3D):
+	other_body = _other_body
 	
 	
-func on_body_exited(other_body: Node3D):
-	isBodyEntered = false
+func on_body_exited(_other_body: Node3D):
+	other_body = null
 
 
 func on_area_3d_mouse_entered():
-	if isBodyEntered:
+	if other_body:
 		isMouseEntered = true
 		outlineMesh.visible = true
 
@@ -38,5 +40,6 @@ func on_area_3d_mouse_exited():
 	
 func on_area_3d_mouse_collision_input_event(camera, event, position, normal, shape_idx):
 	if (event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT) and isMouseEntered:
-		owner.queue_free()
+		if other_body.inventory_data.pick_up_slot_data(slot_data):
+			owner.queue_free()
 

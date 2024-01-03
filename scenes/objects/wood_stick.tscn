@@ -1,8 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://b0r5vk50kpx5o"]
+[gd_scene load_steps=10 format=3 uid="uid://b0r5vk50kpx5o"]
 
 [ext_resource type="PackedScene" uid="uid://b32i62cqg2k8h" path="res://assets/objects/wood_stick.glb" id="1_cj5xx"]
 [ext_resource type="PackedScene" uid="uid://dppy54ln7t2cf" path="res://scenes/component/collectable_component.tscn" id="2_s3rq6"]
 [ext_resource type="Material" uid="uid://duki6bt6fyfcw" path="res://material/collectable_outline_mesh.tres" id="3_4pi7n"]
+[ext_resource type="Resource" uid="uid://pbns8cn1vios" path="res://item/items/wood_stick_item.tres" id="3_w0u3w"]
+[ext_resource type="Script" path="res://inventory/slot_data.gd" id="4_83mo3"]
+
+[sub_resource type="Resource" id="Resource_oy1ud"]
+script = ExtResource("4_83mo3")
+item_data = ExtResource("3_w0u3w")
+quantity = 1
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_26ofq"]
 _surfaces = [{
@@ -29,6 +36,7 @@ transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
 outlineMesh = NodePath("../Stick/MeshInstance3D")
 mouseCollision = NodePath("../Area3DMouseCollision")
 bodyCollision = NodePath("../CollisionArea3D")
+slot_data = SubResource("Resource_oy1ud")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Stick" index="0"]
 visible = false
