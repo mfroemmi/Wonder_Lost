@@ -37,6 +37,11 @@ func clear_external_inventory():
 		external_inventory.hide()
 		external_inventory_owner = null
 	
+func is_external_inventory_open() -> bool:
+	if external_inventory_owner:
+		return true
+	else:
+		return false
 	
 func on_inventory_interact(inventory_data: InventoryData, index: int, button: int):
 	match [grabbed_slot_data, button]:
