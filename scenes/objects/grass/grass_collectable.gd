@@ -3,9 +3,12 @@ extends Node3D
 @onready var meshInstance3D: MeshInstance3D = $Grass_000/MeshInstance3D
 @onready var grass: MeshInstance3D = $Grass_000
 @onready var timer: Timer = $Timer
+@export var slot_data: SlotData
 
 var isBodyEntered: bool = false
 var isMouseEntered: bool = false
+
+var other_body: Node3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -32,17 +35,21 @@ func _on_area_3d_mouse_collision_mouse_exited():
 	
 	
 func _on_area_3d_mouse_collision_input_event(camera, event, position, normal, shape_idx):
-	if (event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT) and isMouseEntered:
+	if (event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT) and isMouseEntered and grass.visible:
+		slot_data.quantity = 1
+		other_body.inventory_data.pick_up_slot_data(slot_data)
 		grass.visible = false
 		timer.start()
 
 
-func on_body_entered(other_body: Node3D):
+func on_body_entered(_other_body: Node3D):
 	isBodyEntered = true
+	other_body = _other_body
 	
 	
 func on_body_exited(other_body: Node3D):
 	isBodyEntered = false
+	other_body = null
 
 func on_timer_timeout():
 	grass.visible = true

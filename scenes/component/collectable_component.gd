@@ -40,6 +40,7 @@ func on_area_3d_mouse_exited():
 	
 func on_area_3d_mouse_collision_input_event(camera, event, position, normal, shape_idx):
 	if (event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT) and isMouseEntered:
+		slot_data.quantity = 1
 		if other_body.inventory_data.pick_up_slot_data(slot_data):
 			owner.queue_free()
 

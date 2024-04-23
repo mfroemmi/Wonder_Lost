@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://btcwjruvsyi8v"]
+[gd_scene load_steps=26 format=3 uid="uid://btcwjruvsyi8v"]
 
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_fafct"]
 [ext_resource type="PackedScene" uid="uid://7vpbb7j0wes1" path="res://scenes/world/custom_world_environment.tscn" id="1_jbpyi"]
@@ -15,8 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://tk2eflh7qtvg" path="res://scenes/objects/grass/grass_short_plane.tscn" id="8_lqtem"]
 [ext_resource type="PackedScene" uid="uid://dv3h2niliheuc" path="res://scenes/objects/grass/grass_collectable.tscn" id="9_5tdkx"]
 [ext_resource type="Script" path="res://inventory/inventory_data.gd" id="11_c5465"]
-[ext_resource type="Resource" uid="uid://dgesavmq0lmsf" path="res://item/items/shell_item.tres" id="12_28dis"]
-[ext_resource type="Script" path="res://inventory/slot_data.gd" id="13_4jq1x"]
 [ext_resource type="PackedScene" uid="uid://b0r5vk50kpx5o" path="res://scenes/objects/wood_stick.tscn" id="13_fkyjy"]
 [ext_resource type="PackedScene" uid="uid://b7vf6qkul3k7h" path="res://inventory/inventory.tscn" id="15_2wl7j"]
 [ext_resource type="Resource" uid="uid://dpv42mt3mtcg3" path="res://test_inventory.tres" id="15_a6wpl"]
@@ -37,14 +35,13 @@ uv1_scale = Vector3(10, 10, 10)
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_gnm76"]
 data = PackedVector3Array(10, 0, 10, -10, 0, 10, 10, 0, -10, -10, 0, 10, -10, 0, -10, 10, 0, -10)
 
-[sub_resource type="Resource" id="Resource_netrr"]
-script = ExtResource("13_4jq1x")
-item_data = ExtResource("12_28dis")
-quantity = 1
-
 [sub_resource type="Resource" id="Resource_vxbg6"]
 script = ExtResource("11_c5465")
-slot_datas = Array[ExtResource("13_4jq1x")]([SubResource("Resource_netrr"), null, null, null, null])
+slot_datas = Array[Resource("res://inventory/slot_data.gd")]([null, null, null, null, null])
+
+[sub_resource type="Resource" id="Resource_2cqps"]
+script = ExtResource("11_c5465")
+slot_datas = Array[Resource("res://inventory/slot_data.gd")]([null, null, null, null, null])
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_fafct")
@@ -115,9 +112,14 @@ item_scene = ExtResource("3_0bgje")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -11.5697)
 
 [node name="Chest" parent="Objects" instance=ExtResource("1_s6nbt")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, -4.63194)
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, -4.63194)
 collision_mask = 2
 inventory_data = SubResource("Resource_vxbg6")
+
+[node name="Chest2" parent="Objects" instance=ExtResource("1_s6nbt")]
+transform = Transform3D(-1.74846e-08, 0, -0.4, 0, 0.4, 0, 0.4, 0, -1.74846e-08, 6.08176, 0, 0.2313)
+collision_mask = 2
+inventory_data = SubResource("Resource_2cqps")
 
 [node name="GrassNormal" parent="Objects" instance=ExtResource("6_kcmh8")]
 transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, -3.31159, 0, 4)
