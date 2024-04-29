@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgekimggpcuci"]
+
+[ext_resource type="PackedScene" uid="uid://j2anootxibu2" path="res://assets/tiles/block_rock.glb" id="1_y7yls"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d1nqo"]
+
+[node name="block_rock" instance=ExtResource("1_y7yls")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("BoxShape3D_d1nqo")
