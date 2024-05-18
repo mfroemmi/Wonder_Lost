@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfneig7hbbcn4"]
+
+[ext_resource type="PackedScene" uid="uid://bhhrvb05kp43g" path="res://assets/tiles/tilemap_block_2x2.glb" id="1_35ivt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_heufv"]
+
+[node name="Tilemap_Block_2x2" instance=ExtResource("1_35ivt")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Block_Full" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Block_Full/StaticBody3D" index="0"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("BoxShape3D_heufv")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Block_Full_Var1" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Block_Full_Var1/StaticBody3D" index="0"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("BoxShape3D_heufv")

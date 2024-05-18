@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dcsk5mh4f1wh6"]
+
+[ext_resource type="Script" path="res://scenes/world/grid_map.gd" id="1_xul55"]
+
+[node name="GridMap" type="GridMap"]
+script = ExtResource("1_xul55")

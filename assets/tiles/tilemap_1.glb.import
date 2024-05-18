@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bly16lh55d4m"
-path="res://.godot/imported/tilemap_2x2.glb-6e5c54259c467ab8375bbd959d51b012.scn"
+uid="uid://llsyiea4qmfd"
+path="res://.godot/imported/tilemap_1.glb-2a7bea9a7bdedb09fdccdbaae7b07a0f.scn"
 
 [deps]
 
-source_file="res://assets/tiles/tilemap_2x2.glb"
-dest_files=["res://.godot/imported/tilemap_2x2.glb-6e5c54259c467ab8375bbd959d51b012.scn"]
+source_file="res://assets/tiles/tilemap_1.glb"
+dest_files=["res://.godot/imported/tilemap_1.glb-2a7bea9a7bdedb09fdccdbaae7b07a0f.scn"]
 
 [params]
 
