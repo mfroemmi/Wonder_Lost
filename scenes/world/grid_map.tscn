@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dcsk5mh4f1wh6"]
+[gd_scene load_steps=3 format=3 uid="uid://dcsk5mh4f1wh6"]
 
+[ext_resource type="MeshLibrary" uid="uid://07pg7ountc7d" path="res://meshlibs/tilemap_1.tres" id="1_djifq"]
 [ext_resource type="Script" path="res://scenes/world/grid_map.gd" id="1_xul55"]
 
 [node name="GridMap" type="GridMap"]
+mesh_library = ExtResource("1_djifq")
+cell_center_z = false
 script = ExtResource("1_xul55")
+metadata/_editor_floor_ = Vector3(0, 0, 0)

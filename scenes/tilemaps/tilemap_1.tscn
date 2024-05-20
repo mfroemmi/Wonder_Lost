@@ -8,11 +8,11 @@
 [node name="tilemap_1" instance=ExtResource("1_nf5tl")]
 
 [node name="Block_Full" parent="." index="0"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(0.745352, 0.666782, 2.91458e-08, 0, -4.37114e-08, 1, 0.666782, -0.745352, -3.25802e-08, 0, 0, 0)
 script = ExtResource("3_3eeie")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Block_Full" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+transform = Transform3D(-0.931073, 0.36483, 1.59472e-08, -0.36483, -0.931073, -8.44096e-08, -1.59472e-08, -8.44099e-08, 1, 1.59472e-08, -8.44096e-08, 1)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Block_Full/StaticBody3D" index="0"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)

@@ -108,11 +108,8 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
-[node name="tilemap_1" parent="World" instance=ExtResource("6_m3ku7")]
-transform = Transform3D(0.298024, -0.245357, 0.922501, 0, 0.966405, 0.257034, -0.954571, -0.0766025, 0.288013, 6.75205, 0, 4.82223)
-
 [node name="GridMap" parent="World" instance=ExtResource("7_u3a5i")]
-mesh_library = ExtResource("5_s7ai3")
+item_scene = ExtResource("6_m3ku7")
 
 [node name="WoodStickSpawnManager" parent="." instance=ExtResource("5_cbge5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.61562, 0.888896, -5.75342)
