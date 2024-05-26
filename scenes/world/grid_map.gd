@@ -26,6 +26,8 @@ func generate_tiles():
 			var tile = Tile.new(coordinates_cell, coordinates_local, item_scene)
 
 			var neighbors = {
+				"top": Vector3i(cell.x, cell.y + 1, cell.z),
+				"bottom": Vector3i(cell.x, cell.y - 1, cell.z),
 				"left": Vector3i(cell.x - 1, cell.y, cell.z),
 				"right": Vector3i(cell.x + 1, cell.y, cell.z),
 				"front": Vector3i(cell.x, cell.y, cell.z + 1),

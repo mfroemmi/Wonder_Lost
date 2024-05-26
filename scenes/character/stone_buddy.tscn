@@ -400,7 +400,7 @@ shape = SubResource("CapsuleShape3D_nyagb")
 [node name="SpringArmPivot" type="Node3D" parent="."]
 
 [node name="SpringArm3D" type="SpringArm3D" parent="SpringArmPivot"]
-transform = Transform3D(0.906308, -0.365998, 0.211309, 0, 0.5, 0.866025, -0.422618, -0.784886, 0.453154, 0, 4.53778, 0)
+transform = Transform3D(1, 0, 0, 0, 0.743145, 0.66913, 0, -0.669131, 0.743145, 0, 4, 0)
 collision_mask = 0
 spring_length = 25.0
 

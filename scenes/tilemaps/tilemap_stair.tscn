@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://mx6jfsv177o4"]
+
+[ext_resource type="PackedScene" uid="uid://ph4108a3wnbp" path="res://assets/tiles/tilemap_stair.glb" id="1_vb4qn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4kuom"]
+
+[node name="tilemap_stair" instance=ExtResource("1_vb4qn")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Stair" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stair/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.466249)
+shape = SubResource("BoxShape3D_4kuom")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Stair/StaticBody3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.166391)
+shape = SubResource("BoxShape3D_4kuom")
