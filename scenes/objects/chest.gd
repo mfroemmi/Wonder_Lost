@@ -15,12 +15,12 @@ func _ready():
 	$CollisionArea3D.body_exited.connect(on_body_exited)
 
 
-func on_body_entered(other_body: Node3D):
+func on_body_entered(_other_body: Node3D):
 	print("on_body_entered")
 	isBodyEntered = true
 	
 	
-func on_body_exited(other_body: Node3D):
+func on_body_exited(_other_body: Node3D):
 	print("on_body_exited")
 	isBodyEntered = false
 	if isChestOpened:
@@ -29,7 +29,7 @@ func on_body_exited(other_body: Node3D):
 		player_interact()
 		
 
-func _on_input_event(camera, event, position, normal, shape_idx):
+func _on_input_event(_camera, event, _position, _normal, _shape_idx):
 	if (event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT) and isMouseEntered and isBodyEntered:
 		if isChestOpened:
 			isChestOpened = false

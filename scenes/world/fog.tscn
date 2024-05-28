@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://dh5aln7gpogpm"]
+
+[ext_resource type="Shader" path="res://shader/smoke.gdshader" id="1_ecl3j"]
+[ext_resource type="Script" path="res://scenes/world/fog.gd" id="2_dww7t"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7yc3t"]
+shader = ExtResource("1_ecl3j")
+shader_parameter/density = 2.8
+shader_parameter/albedo = Color(0.65098, 0.4, 0.631373, 1)
+shader_parameter/emission = Color(0, 0, 0, 1)
+shader_parameter/height_falloff = 0.0
+shader_parameter/edge_fade = 0.1
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3tepp"]
+emission_shape = 2
+emission_sphere_radius = 1.5
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 2.0
+initial_velocity_max = 3.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_io830"]
+diffuse_mode = 3
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+grow = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_7iwel"]
+lightmap_size_hint = Vector2i(3, 2)
+material = SubResource("StandardMaterial3D_io830")
+radius = 0.05
+height = 0.1
+
+[node name="Fog" type="Node3D"]
+
+[node name="FogVolume" type="FogVolume" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 1.5, 0, 0, 0)
+size = Vector3(8, 8, 8)
+shape = 0
+material = SubResource("ShaderMaterial_7yc3t")
+script = ExtResource("2_dww7t")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+amount = 24
+speed_scale = 0.3
+process_material = SubResource("ParticleProcessMaterial_3tepp")
+draw_pass_1 = SubResource("SphereMesh_7iwel")

@@ -4,17 +4,19 @@ extends GridMap
 @export var item_scene: PackedScene
 var parentNode: Node
 var tiles = []
+var old_tiles = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	generate_tiles()
 
 func generate_tiles():
 	var cells = get_used_cells()
+	old_tiles = tiles
 	
 	if (cells.size() != tiles.size()):
 		reset()
@@ -48,11 +50,29 @@ func generate_tiles():
 			var item = tile.get_item()
 			add_child(item)
 			item.global_position = to_global(tile.coordinates_local) - Vector3(0, 1, -1)
-		
-		#print(tiles.size())
 
 func reset():
 	tiles.clear()
+	
 	for i in range(0, get_child_count()):
 		get_child(i).queue_free()
-		
+	
+func match_tiles(cell: Vector3) -> bool:
+	var found = false
+	var found_tile = null
+	var coordinates_cell = cell
+	
+	for tile in old_tiles:
+		#print("tile ", tile.coordinates_cell, " coordinates_cell ", coordinates_cell)
+		if tile.coordinates_cell == coordinates_cell:
+			found_tile = tile
+			found = true
+			break
+	
+	if found != null:
+		tiles.append(found_tile)
+		print("Tile with coordinates ", coordinates_cell, " already exists in tiles.")
+	else:
+		print("Tile with coordinates ", coordinates_cell, " not found in tiles.")
+	
+	return found

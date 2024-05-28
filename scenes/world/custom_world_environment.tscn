@@ -6,7 +6,7 @@ background_energy_multiplier = 0.2
 sdfgi_enabled = true
 glow_enabled = true
 volumetric_fog_enabled = true
-volumetric_fog_density = 0.025
+volumetric_fog_density = 0.0
 
 [node name="CustomWorldEnvironment" type="WorldEnvironment"]
 environment = SubResource("Environment_p8hmw")

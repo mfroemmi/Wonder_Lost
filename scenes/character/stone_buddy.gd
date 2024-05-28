@@ -10,12 +10,12 @@ signal toggle_inventory
 const SPEED = 5.0
 
 
-func _unhandled_input(event):
+func _unhandled_input(_event):
 	if Input.is_action_just_pressed("inventory"):
 		toggle_inventory.emit()
 		
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= 1

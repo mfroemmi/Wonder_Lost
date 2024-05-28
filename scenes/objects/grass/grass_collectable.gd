@@ -19,7 +19,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 
@@ -34,7 +34,7 @@ func _on_area_3d_mouse_collision_mouse_exited():
 	meshInstance3D.visible = false
 	
 	
-func _on_area_3d_mouse_collision_input_event(camera, event, position, normal, shape_idx):
+func _on_area_3d_mouse_collision_input_event(_camera, event, _position, _normal, _shape_idx):
 	if (event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT) and isMouseEntered and grass.visible:
 		slot_data.quantity = 1
 		other_body.inventory_data.pick_up_slot_data(slot_data)
@@ -47,7 +47,7 @@ func on_body_entered(_other_body: Node3D):
 	other_body = _other_body
 	
 	
-func on_body_exited(other_body: Node3D):
+func on_body_exited(_other_body: Node3D):
 	isBodyEntered = false
 	other_body = null
 

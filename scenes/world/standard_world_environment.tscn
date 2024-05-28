@@ -12,6 +12,8 @@ background_mode = 2
 sky = SubResource("Sky_gbr8g")
 tonemap_mode = 2
 glow_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0
 
 [node name="StandardWorldEnvironment" type="WorldEnvironment"]
 environment = SubResource("Environment_l1w37")
