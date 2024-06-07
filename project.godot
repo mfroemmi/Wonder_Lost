@@ -20,6 +20,10 @@ config/icon="res://icon.svg"
 window/size/viewport_width=2560
 window/size/viewport_height=1440
 
+[filesystem]
+
+import/fbx/enabled=false
+
 [input]
 
 forward={
@@ -59,7 +63,9 @@ inventory={
 3d_physics/layer_2="player"
 3d_physics/layer_3="items"
 3d_physics/layer_4="objects"
+3d_physics/layer_5="magic objects"
 
 [rendering]
 
 environment/volumetric_fog/volume_size=256
+environment/volumetric_fog/volume_depth=128
