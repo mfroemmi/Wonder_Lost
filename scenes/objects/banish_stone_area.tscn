@@ -18,13 +18,12 @@ shader_parameter/edge_fade = 0.1
 height = 0.01
 
 [node name="BanishStoneArea" type="Node3D" node_paths=PackedStringArray("banishFog", "banishArea")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 script = ExtResource("1_eva1q")
 banishFog = NodePath("BanishFog")
 banishArea = NodePath("BanishArea")
 
 [node name="BanishStone" parent="." instance=ExtResource("2_sykov")]
-transform = Transform3D(-1.31134e-08, 0, -0.3, 0, 0.3, 0, 0.3, 0, -1.31134e-08, 0, -0.5, 0)
+transform = Transform3D(-1.31134e-08, 0, -0.3, 0, 0.3, 0, 0.3, 0, -1.31134e-08, 0, 0, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 visible = false
@@ -48,6 +47,7 @@ shape = 0
 material = SubResource("ShaderMaterial_qcdtb")
 
 [node name="BanishArea" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 collision_layer = 16
 collision_mask = 0
 

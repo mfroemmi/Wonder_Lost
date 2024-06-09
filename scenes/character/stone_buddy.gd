@@ -37,4 +37,8 @@ func _physics_process(_delta):
 		var lookDir = Vector2(velocity.z, velocity.x)
 		skelett.rotation.y = lookDir.angle() - PI/2
 
+	print(global_position)
 	move_and_slide()
+
+func get_drop_position() -> Vector3:
+	return position

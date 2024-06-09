@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dvrbdkn1plvwu"]
+[gd_scene load_steps=3 format=3 uid="uid://dvrbdkn1plvwu"]
 
 [ext_resource type="Script" path="res://inventory/slot.gd" id="1_ig5br"]
+[ext_resource type="Texture2D" uid="uid://muuaaya81rs8" path="res://krita/final_item_labels/placeable_label.png" id="2_14kq4"]
 
 [node name="Slot" type="PanelContainer"]
 custom_minimum_size = Vector2(128, 128)
@@ -33,5 +34,19 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
 theme_override_font_sizes/font_size = 32
 text = "x99"
+
+[node name="MarginContainer3" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="PlaceableLabel" type="TextureRect" parent="MarginContainer3"]
+visible = false
+layout_mode = 2
+texture = ExtResource("2_14kq4")
+expand_mode = 1
+stretch_mode = 5
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]

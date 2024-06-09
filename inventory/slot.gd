@@ -4,6 +4,7 @@ signal slot_clicked(index: int, button: int)
 
 @onready var texture_rect = $MarginContainer/TextureRect
 @onready var quantity_label = $MarginContainer2/QuantityLabel
+@onready var placeable_label = $MarginContainer3/PlaceableLabel
 
 func set_slot_data(slot_data: SlotData):
 	var item_data = slot_data.item_data
@@ -15,6 +16,11 @@ func set_slot_data(slot_data: SlotData):
 		quantity_label.show()
 	else:
 		quantity_label.hide()
+		
+	if slot_data.item_data.placeable:
+		placeable_label.show()
+	else:
+		placeable_label.hide()
 
 func _on_gui_input(event):
 	if event is InputEventMouseButton \

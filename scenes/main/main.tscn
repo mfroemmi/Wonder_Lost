@@ -178,7 +178,7 @@ transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, -1.51341, 0, 4.04199
 transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, -2.81351, 0, 3.64591)
 
 [node name="BanishStoneArea" parent="Objects" instance=ExtResource("19_xnwlh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.451, 0.5, -5.85271)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.0397, 0, -5.96383)
 
 [node name="EntitiesLayer" type="Node3D" parent="." groups=["entities_layer"]]
 
@@ -221,3 +221,6 @@ self_modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_right = 128.0
 offset_bottom = 128.0
+
+[connection signal="drop_slot_data" from="UI/InventoryInterface" to="." method="_on_inventory_interface_drop_slot_data"]
+[connection signal="gui_input" from="UI/InventoryInterface" to="UI/InventoryInterface" method="_on_gui_input"]
