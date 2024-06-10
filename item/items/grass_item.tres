@@ -10,4 +10,5 @@ script = ExtResource("1_yaf8n")
 name = "Grass"
 description = ""
 stackable = true
+placeable = false
 texture = SubResource("CompressedTexture2D_lirx3")

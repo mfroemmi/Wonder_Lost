@@ -29,5 +29,5 @@ func on_toggle_inventory_interface(external_inventory_owner = null):
 func _on_inventory_interface_drop_slot_data(slot_data: SlotData):
 	if slot_data.item_data.placeable_scene != null:
 		var scene = slot_data.item_data.placeable_scene.instantiate()
-		scene.global_position = stone_buddy.get_drop_position()
 		add_child(scene)
+		scene.global_position = stone_buddy.global_position

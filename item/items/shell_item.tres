@@ -10,4 +10,5 @@ script = ExtResource("1_0wori")
 name = "Shell"
 description = ""
 stackable = true
+placeable = false
 texture = SubResource("CompressedTexture2D_m8yab")

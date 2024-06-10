@@ -25,10 +25,10 @@ func _process(_delta):
 	if (currentCount >= areas.get_child_count() * 0.9):
 		queue_free()
 
-func _on_body_entered(_other_body: Node3D, id: int):
-	area_statuses[id] = true
+func _on_body_entered(_other_body: Node3D, _id: int):
+	area_statuses[_id] = true
 	
-func _on_body_exited(_other_body: Node3D, id: int):
+func _on_body_exited(_other_body: Node3D, _id: int):
 	pass
 
 func get_entered_count() -> int:
