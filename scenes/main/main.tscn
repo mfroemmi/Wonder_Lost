@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://btcwjruvsyi8v"]
+[gd_scene load_steps=30 format=3 uid="uid://btcwjruvsyi8v"]
 
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_fafct"]
 [ext_resource type="PackedScene" uid="uid://7vpbb7j0wes1" path="res://scenes/world/custom_world_environment.tscn" id="1_jbpyi"]
@@ -24,6 +24,7 @@
 [ext_resource type="Script" path="res://inventory/inventory_interface.gd" id="17_a264a"]
 [ext_resource type="PackedScene" uid="uid://dvrbdkn1plvwu" path="res://inventory/slot.tscn" id="19_m4ofp"]
 [ext_resource type="PackedScene" uid="uid://c06wj0486ahfs" path="res://scenes/objects/banish_stone_area.tscn" id="19_xnwlh"]
+[ext_resource type="PackedScene" uid="uid://d4m5olm4gyd37" path="res://panels/banish_stone_panel.tscn" id="24_pusqf"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_0w1lp"]
 size = Vector2(15, 15)
@@ -213,6 +214,14 @@ offset_left = 1000.0
 offset_top = 30.0
 offset_right = 1040.0
 offset_bottom = 70.0
+
+[node name="BanishStonePanel" parent="UI/InventoryInterface" instance=ExtResource("24_pusqf")]
+visible = false
+layout_mode = 0
+offset_left = 1000.0
+offset_top = 30.0
+offset_right = 1133.0
+offset_bottom = 92.0
 
 [node name="GrabbedSlot" parent="UI/InventoryInterface" instance=ExtResource("19_m4ofp")]
 visible = false
