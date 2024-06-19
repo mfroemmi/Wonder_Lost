@@ -4,8 +4,6 @@
 [ext_resource type="Shader" path="res://shader/smoke.gdshader" id="2_1m7ky"]
 [ext_resource type="PackedScene" uid="uid://urwt5v8we383" path="res://scenes/objects/banish_stone.tscn" id="2_sykov"]
 
-[sub_resource type="SphereMesh" id="SphereMesh_x6igd"]
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qcdtb"]
 shader = ExtResource("2_1m7ky")
 shader_parameter/density = -4.0
@@ -17,17 +15,19 @@ shader_parameter/edge_fade = 0.1
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_c6fg7"]
 height = 0.01
 
-[node name="BanishStoneArea" type="Node3D" node_paths=PackedStringArray("banishFog", "banishArea")]
+[sub_resource type="BoxShape3D" id="BoxShape3D_mapfq"]
+size = Vector3(1.1, 1.1, 1.1)
+
+[node name="BanishStoneArea" type="Node3D" node_paths=PackedStringArray("banishFog", "banishArea", "mouseCollision") groups=["banish_stone_panel"]]
 script = ExtResource("1_eva1q")
 banishFog = NodePath("BanishFog")
 banishArea = NodePath("BanishArea")
+mouseCollision = NodePath("Area3DMouseCollision")
 
 [node name="BanishStone" parent="." instance=ExtResource("2_sykov")]
 transform = Transform3D(-1.31134e-08, 0, -0.3, 0, 0.3, 0, 0.3, 0, -1.31134e-08, 0, 0, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-visible = false
-mesh = SubResource("SphereMesh_x6igd")
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.41779, 0.0613039)
@@ -54,3 +54,11 @@ collision_mask = 0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BanishArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.494853, 0)
 shape = SubResource("CylinderShape3D_c6fg7")
+
+[node name="Area3DMouseCollision" type="Area3D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3DMouseCollision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.352854, 0)
+shape = SubResource("BoxShape3D_mapfq")

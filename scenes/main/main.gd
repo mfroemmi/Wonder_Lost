@@ -3,22 +3,24 @@ extends Node3D
 @onready var stone_buddy = $EntitiesLayer/StoneBuddy
 @onready var inventory_interface = $UI/InventoryInterface
 
-var inventory_type = INVENTORY_TYPE.NONE
-
 func _ready():
 	stone_buddy.toggle_inventory.connect(on_toggle_inventory_interface)
 	inventory_interface.set_player_inventory_data(stone_buddy.inventory_data)
 	
 	for node in get_tree().get_nodes_in_group("external_inventory"):
-		inventory_type = INVENTORY_TYPE.CHEST
-		node.toggle_inventory.connect(on_toggle_inventory_interface)
+		var node_type = INVENTORY_TYPE.CHEST  # Lokale Variable
+		node.toggle_inventory.connect(func(external_inventory_owner):
+			on_toggle_inventory_interface(external_inventory_owner, node_type)
+		)
 		
 	for node in get_tree().get_nodes_in_group("banish_stone_panel"):
-		inventory_type = INVENTORY_TYPE.BANISH
-		node.toggle_inventory.connect(on_toggle_inventory_interface)
+		var node_type = INVENTORY_TYPE.BANISH  # Lokale Variable
+		node.toggle_inventory.connect(func(external_inventory_owner):
+			on_toggle_inventory_interface(external_inventory_owner, node_type)
+		)
 
 
-func on_toggle_inventory_interface(external_inventory_owner = null):
+func on_toggle_inventory_interface(external_inventory_owner = null, inventory_type = INVENTORY_TYPE.NONE):
 	var is_external_inventory_open = inventory_interface.is_external_inventory_open()
 	
 	if is_external_inventory_open == false:

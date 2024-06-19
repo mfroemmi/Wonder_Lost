@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://btcwjruvsyi8v"]
+[gd_scene load_steps=31 format=3 uid="uid://btcwjruvsyi8v"]
 
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_fafct"]
 [ext_resource type="PackedScene" uid="uid://7vpbb7j0wes1" path="res://scenes/world/custom_world_environment.tscn" id="1_jbpyi"]
@@ -39,6 +39,10 @@ slot_datas = Array[Resource("res://inventory/slot_data.gd")]([null, null, null, 
 [sub_resource type="Resource" id="Resource_2cqps"]
 script = ExtResource("11_c5465")
 slot_datas = Array[Resource("res://inventory/slot_data.gd")]([null, null, null, null, null])
+
+[sub_resource type="Resource" id="Resource_sfh4e"]
+script = ExtResource("11_c5465")
+slot_datas = Array[Resource("res://inventory/slot_data.gd")]([null, null])
 
 [node name="Main" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.47052, 3.23541, -5.16532)
@@ -180,6 +184,7 @@ transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, -2.81351, 0, 3.64591
 
 [node name="BanishStoneArea" parent="Objects" instance=ExtResource("19_xnwlh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.0397, 0, -5.96383)
+inventory_data = SubResource("Resource_sfh4e")
 
 [node name="EntitiesLayer" type="Node3D" parent="." groups=["entities_layer"]]
 
