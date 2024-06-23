@@ -5,6 +5,7 @@ signal toggle_inventory(external_inventory_owner)
 @onready var animationPlayer: AnimationPlayer = $AnimationPlayer
 
 @export var inventory_data: InventoryData
+var inventory_type = INVENTORY_TYPE.CHEST
 
 var isBodyEntered: bool = false
 var isMouseEntered: bool = false

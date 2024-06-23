@@ -8,19 +8,12 @@ func _ready():
 	inventory_interface.set_player_inventory_data(stone_buddy.inventory_data)
 	
 	for node in get_tree().get_nodes_in_group("external_inventory"):
-		var node_type = INVENTORY_TYPE.CHEST  # Lokale Variable
 		node.toggle_inventory.connect(func(external_inventory_owner):
-			on_toggle_inventory_interface(external_inventory_owner, node_type)
-		)
-		
-	for node in get_tree().get_nodes_in_group("banish_stone_panel"):
-		var node_type = INVENTORY_TYPE.BANISH  # Lokale Variable
-		node.toggle_inventory.connect(func(external_inventory_owner):
-			on_toggle_inventory_interface(external_inventory_owner, node_type)
+			on_toggle_inventory_interface(external_inventory_owner)
 		)
 
 
-func on_toggle_inventory_interface(external_inventory_owner = null, inventory_type = INVENTORY_TYPE.NONE):
+func on_toggle_inventory_interface(external_inventory_owner = null):
 	var is_external_inventory_open = inventory_interface.is_external_inventory_open()
 	
 	if is_external_inventory_open == false:
@@ -29,10 +22,10 @@ func on_toggle_inventory_interface(external_inventory_owner = null, inventory_ty
 	if external_inventory_owner:
 		if is_external_inventory_open == false:
 			inventory_interface.visible = true
-			inventory_interface.set_external_inventory(external_inventory_owner, inventory_type)
+			inventory_interface.set_external_inventory(external_inventory_owner)
 		else:
 			inventory_interface.visible = false
-			inventory_interface.clear_external_inventory(inventory_type)
+			inventory_interface.clear_external_inventory()
 
 
 func _on_inventory_interface_drop_slot_data(slot_data: SlotData):
@@ -40,3 +33,12 @@ func _on_inventory_interface_drop_slot_data(slot_data: SlotData):
 		var scene = slot_data.item_data.placeable_scene.instantiate()
 		add_child(scene)
 		scene.global_position = stone_buddy.global_position
+
+func connectOwner():
+	for node in get_tree().get_nodes_in_group("banish_stone_panel"):
+		if node.isInventoryConnected == false:
+			node.isInventoryConnected = true
+
+			node.toggle_inventory.connect(func(external_inventory_owner):
+				on_toggle_inventory_interface(external_inventory_owner)
+			)

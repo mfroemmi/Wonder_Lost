@@ -18,8 +18,9 @@ height = 0.01
 [sub_resource type="BoxShape3D" id="BoxShape3D_mapfq"]
 size = Vector3(1.1, 1.1, 1.1)
 
-[node name="BanishStoneArea" type="Node3D" node_paths=PackedStringArray("banishFog", "banishArea", "mouseCollision") groups=["banish_stone_panel"]]
+[node name="BanishStoneArea" type="Node3D" node_paths=PackedStringArray("banishStone", "banishFog", "banishArea", "mouseCollision") groups=["banish_stone_panel"]]
 script = ExtResource("1_eva1q")
+banishStone = NodePath("BanishStone")
 banishFog = NodePath("BanishFog")
 banishArea = NodePath("BanishArea")
 mouseCollision = NodePath("Area3DMouseCollision")

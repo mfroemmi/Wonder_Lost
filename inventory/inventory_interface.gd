@@ -22,9 +22,10 @@ func set_player_inventory_data(inventory_data: InventoryData):
 	
 
 # External-Inventory (Chest, Banish)
-func set_external_inventory(_external_inventory_owner, inventory_type):
+func set_external_inventory(_external_inventory_owner):
 	external_inventory_owner = _external_inventory_owner
 	var inventory_data = external_inventory_owner.inventory_data
+	var inventory_type = external_inventory_owner.inventory_type
 	
 	inventory_data.inventory_interact.connect(on_inventory_interact)
 	
@@ -32,13 +33,14 @@ func set_external_inventory(_external_inventory_owner, inventory_type):
 		external_inventory.set_inventory_data(inventory_data)
 		external_inventory.show()
 	if inventory_type == INVENTORY_TYPE.BANISH:
-		banish_stone_panel.set_inventory_data(inventory_data)
+		banish_stone_panel.set_inventory_data(external_inventory_owner)
 		banish_stone_panel.show()
 	
 	
-func clear_external_inventory(inventory_type):
+func clear_external_inventory():
 	if external_inventory_owner:
 		var inventory_data = external_inventory_owner.inventory_data
+		var inventory_type = external_inventory_owner.inventory_type
 		
 		inventory_data.inventory_interact.disconnect(on_inventory_interact)
 		
