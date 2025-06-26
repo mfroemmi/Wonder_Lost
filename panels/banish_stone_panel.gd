@@ -3,18 +3,26 @@ extends PanelContainer
 const Slot = preload("res://inventory/slot.tscn")
 var external_inventory_owner
 
-@onready var item_grid: GridContainer = $MarginContainer/VBoxContainer/MarginContainer/CenterContainer/ItemGrid
-@onready var button: Button = $MarginContainer/VBoxContainer/Button
+@export var item_grid: GridContainer
+@export var not_activated_container: VBoxContainer
+@export var activated_container: PanelContainer
+@export var button: Button
 	
 	
 func _ready():
 	button.pressed.connect(self._button_pressed)
-	
 
 func set_inventory_data(_external_inventory_owner):
 	external_inventory_owner = _external_inventory_owner
 	external_inventory_owner.inventory_data.inventory_updated.connect(populate_item_grid)
 	populate_item_grid(external_inventory_owner.inventory_data)
+	
+	if external_inventory_owner.isActivated:
+		not_activated_container.visible = false
+		activated_container.visible = true
+	else:
+		not_activated_container.visible = true
+		activated_container.visible = false
 	
 	
 func clear_inventory_data(inventory_data: InventoryData):
@@ -36,4 +44,16 @@ func populate_item_grid(inventory_data: InventoryData):
 
 
 func _button_pressed():
-	external_inventory_owner.activateBanishStone()
+	var gem: bool
+	var vase: bool
+
+	for child in item_grid.get_children():
+		if child.item_name == "Gem" and child.item_quantity == 1:
+			gem = true
+		if child.item_name == "Vase" and child.item_quantity == 2:
+			vase = true
+	
+	if gem and vase:
+		not_activated_container.visible = false
+		activated_container.visible = true
+		external_inventory_owner.activateBanishStone()
