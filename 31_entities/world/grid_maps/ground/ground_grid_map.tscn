@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcsk5mh4f1wh6"]
+
+[ext_resource type="MeshLibrary" uid="uid://cndqidfg38and" path="res://31_entities/world/grid_maps/ground/mesh_dummy.tres" id="1_456en"]
+[ext_resource type="Script" uid="uid://dgleh2j1y1pbb" path="res://31_entities/world/grid_maps/ground/ground_grid_map.gd" id="1_xul55"]
+
+[node name="GridMap" type="GridMap"]
+mesh_library = ExtResource("1_456en")
+cell_center_z = false
+script = ExtResource("1_xul55")
+metadata/_editor_floor_ = Vector3(0, 0, 0)

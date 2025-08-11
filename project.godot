@@ -11,14 +11,24 @@ config_version=5
 [application]
 
 config/name="WonderLost"
-run/main_scene="res://scenes/main/main.tscn"
-config/features=PackedStringArray("4.3", "Forward Plus")
+run/main_scene="res://21_scenes/main/main.tscn"
+config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
 [display]
 
-window/size/viewport_width=2560
-window/size/viewport_height=1440
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+
+[file_customization]
+
+folder_colors={
+"res://01_assets/": "orange",
+"res://02_materials/": "orange",
+"res://31_entities/": "teal",
+"res://51_localization/": "gray",
+"res://52_config/": "gray"
+}
 
 [filesystem]
 

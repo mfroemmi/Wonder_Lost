@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://duki6bt6fyfcw"]
+
+[resource]
+diffuse_mode = 3
+rim_enabled = true
+grow = true
+grow_amount = 0.1
+distance_fade_max_distance = 1.0

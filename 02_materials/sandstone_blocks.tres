@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://ddiafdnohhtj6"]
+
+[ext_resource type="Texture2D" uid="uid://dw30kpbh0mm05" path="res://02_materials/textures/sandstone_blocks/sandstone_blocks_08_diff_4k.png" id="1_2r6uf"]
+[ext_resource type="Texture2D" uid="uid://b53wxld4xxr1u" path="res://02_materials/textures/sandstone_blocks/sandstone_blocks_08_nor_gl_4k.png" id="2_gdor4"]
+[ext_resource type="Texture2D" uid="uid://cvfttecpvh35h" path="res://02_materials/textures/sandstone_blocks/sandstone_blocks_08_rough_4k.png" id="3_gfphe"]
+
+[resource]
+albedo_texture = ExtResource("1_2r6uf")
+metallic_specular = 0.0
+roughness_texture = ExtResource("3_gfphe")
+normal_enabled = true
+normal_texture = ExtResource("2_gdor4")
+uv1_scale = Vector3(4, 4, 4)

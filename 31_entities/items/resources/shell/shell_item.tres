@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://dgesavmq0lmsf"]
+
+[ext_resource type="Script" uid="uid://bkox537w2pyt1" path="res://31_entities/items/item_data.gd" id="1_0wori"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_m8yab"]
+load_path = "res://.godot/imported/shell_item.png-2782e5bb6cfaeb99c12c1f928e953326.ctex"
+
+[resource]
+script = ExtResource("1_0wori")
+name = "Shell"
+description = ""
+stackable = true
+placeable = false
+texture = SubResource("CompressedTexture2D_m8yab")

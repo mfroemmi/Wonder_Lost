@@ -1,12 +1,12 @@
 [gd_resource type="Resource" script_class="InventoryData" load_steps=14 format=3 uid="uid://dpv42mt3mtcg3"]
 
-[ext_resource type="Script" path="res://inventory/inventory_data.gd" id="1_mtlos"]
-[ext_resource type="Resource" uid="uid://bekjqf8pk4c0c" path="res://item/items/banish_stone.tres" id="2_6fx47"]
-[ext_resource type="Script" path="res://inventory/slot_data.gd" id="3_iakyv"]
-[ext_resource type="Resource" uid="uid://tdcexofu4u30" path="res://item/items/vase_item.tres" id="4_2e7xk"]
-[ext_resource type="Resource" uid="uid://codxrrlbn2el1" path="res://item/items/grass_item.tres" id="4_ba08k"]
-[ext_resource type="Resource" uid="uid://bjvg5d08hd17n" path="res://item/items/gem_item.tres" id="5_jma0v"]
-[ext_resource type="Resource" uid="uid://pbns8cn1vios" path="res://item/items/wood_stick_item.tres" id="5_louei"]
+[ext_resource type="Script" uid="uid://s3n8lo1kqoi3" path="res://12_common/inventory/inventory_data.gd" id="1_mtlos"]
+[ext_resource type="Resource" uid="uid://bekjqf8pk4c0c" path="res://31_entities/items/resources/banish_stone/banish_stone.tres" id="2_6fx47"]
+[ext_resource type="Script" uid="uid://011jn2a0evck" path="res://12_common/inventory/slot_data.gd" id="3_iakyv"]
+[ext_resource type="Resource" uid="uid://tdcexofu4u30" path="res://31_entities/items/resources/vase/vase_item.tres" id="4_2e7xk"]
+[ext_resource type="Resource" uid="uid://codxrrlbn2el1" path="res://31_entities/items/resources/grass/grass_item.tres" id="4_ba08k"]
+[ext_resource type="Resource" uid="uid://bjvg5d08hd17n" path="res://31_entities/items/resources/gem/gem_item.tres" id="5_jma0v"]
+[ext_resource type="Resource" uid="uid://pbns8cn1vios" path="res://31_entities/items/resources/wood_stick/wood_stick_item.tres" id="5_louei"]
 
 [sub_resource type="Resource" id="Resource_3f532"]
 script = ExtResource("3_iakyv")

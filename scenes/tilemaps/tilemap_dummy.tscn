@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bfsqd7s81uwa4"]
-
-[ext_resource type="PackedScene" uid="uid://d1uq2oee48suf" path="res://assets/tiles/tilemap_dummy.glb" id="1_fqtps"]
-
-[node name="tilemap_dummy" instance=ExtResource("1_fqtps")]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
