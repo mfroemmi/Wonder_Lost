@@ -14,7 +14,7 @@ mesh = SubResource("PlaneMesh_0w1lp")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("1_n0de4")
 
-[node name="Ground" type="StaticBody3D" parent="." groups=["spawn_collider"]]
+[node name="Ground" type="StaticBody3D" parent="." groups=["placeable_for_objects", "spawn_collider"]]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]

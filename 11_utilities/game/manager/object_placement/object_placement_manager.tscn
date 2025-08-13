@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cdjeixcaqy0gf"]
+
+[ext_resource type="Script" uid="uid://bgeg8hd00d615" path="res://11_utilities/game/manager/object_placement/object_placement_manager.gd" id="1_j0nhm"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_j0nhm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d76pt"]
+transparency = 1
+albedo_color = Color(0.317647, 1, 0.635294, 0.686275)
+
+[node name="ObjectPlacementManager" type="Node3D" node_paths=PackedStringArray("marker")]
+script = ExtResource("1_j0nhm")
+marker = NodePath("Marker")
+
+[node name="Marker" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("BoxMesh_j0nhm")
+surface_material_override/0 = SubResource("StandardMaterial3D_d76pt")

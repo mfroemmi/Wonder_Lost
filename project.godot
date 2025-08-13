@@ -15,6 +15,10 @@ run/main_scene="res://21_scenes/main/main.tscn"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+CharacterManager="*res://11_utilities/game/manager/character_manager.gd"
+
 [display]
 
 window/size/viewport_width=1920
@@ -33,6 +37,10 @@ folder_colors={
 [filesystem]
 
 import/fbx/enabled=false
+
+[global_group]
+
+placeable_for_objects=""
 
 [input]
 

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://nwv7syokrkx1"]
+
+[ext_resource type="PackedScene" uid="uid://4ghdar112c7c" path="res://31_entities/world/tiles/model/marker.glb" id="1_ut0vj"]
+
+[node name="marker" instance=ExtResource("1_ut0vj")]
+
+[node name="Block_Marker" parent="." index="0"]
+transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 1.5, 0, 0, 0)
+
+[node name="Empty_Marker" parent="." index="1"]
+transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 1.5, 0, 0, 0)

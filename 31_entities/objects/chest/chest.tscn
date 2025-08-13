@@ -377,7 +377,7 @@ skin = SubResource("Skin_iyaie")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_q1ewc")
+&"": SubResource("AnimationLibrary_q1ewc")
 }
 
 [node name="CollisionArea3D" type="Area3D" parent="."]

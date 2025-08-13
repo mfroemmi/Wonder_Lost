@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=4 uid="uid://b0r5vk50kpx5o"]
 
 [ext_resource type="PackedScene" uid="uid://b32i62cqg2k8h" path="res://31_entities/objects/wood_stick/model/wood_stick.glb" id="1_cj5xx"]
-[ext_resource type="PackedScene" uid="uid://dppy54ln7t2cf" path="res://11_utilities/game/component/collectable_component.tscn" id="2_s3rq6"]
+[ext_resource type="PackedScene" uid="uid://dppy54ln7t2cf" path="res://11_utilities/game/component/collectable/collectable_component.tscn" id="2_s3rq6"]
 [ext_resource type="Material" uid="uid://duki6bt6fyfcw" path="res://02_materials/collectable_outline_mesh.tres" id="3_4pi7n"]
 [ext_resource type="Resource" uid="uid://pbns8cn1vios" path="res://31_entities/items/resources/wood_stick/wood_stick_item.tres" id="3_w0u3w"]
 [ext_resource type="Script" uid="uid://011jn2a0evck" path="res://12_common/inventory/slot_data.gd" id="4_83mo3"]

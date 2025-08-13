@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cr0nhrtt6cc2v"]
+
+[ext_resource type="MeshLibrary" uid="uid://cjgkgj215fy0o" path="res://31_entities/world/grid_maps/mesh_marker.tres" id="1_ewat2"]
+[ext_resource type="Script" uid="uid://dgleh2j1y1pbb" path="res://31_entities/world/grid_maps/tile_generator.gd" id="2_5dtci"]
+
+[node name="GridMap" type="GridMap"]
+mesh_library = ExtResource("1_ewat2")
+cell_size = Vector3(3, 3, 3)
+cell_center_y = false
+script = ExtResource("2_5dtci")
+metadata/_editor_floor_ = Vector3(0, 0, 0)

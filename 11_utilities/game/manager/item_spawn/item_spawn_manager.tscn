@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxptxteivbgjd"]
+
+[ext_resource type="Script" uid="uid://deisda232382l" path="res://11_utilities/game/manager/item_spawn/item_spawn_manager.gd" id="1_4ccwt"]
+
+[node name="ItemSpawnManager" type="Node3D"]
+script = ExtResource("1_4ccwt")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, 0)
+target_position = Vector3(0, -30, 0)
+collision_mask = 9

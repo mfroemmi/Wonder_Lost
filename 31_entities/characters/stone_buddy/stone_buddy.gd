@@ -10,6 +10,10 @@ signal toggle_inventory
 const SPEED = 5.0
 
 
+func _ready():
+	CharacterManager.character = self
+
+
 func _unhandled_input(_event):
 	if Input.is_action_just_pressed("inventory"):
 		toggle_inventory.emit()

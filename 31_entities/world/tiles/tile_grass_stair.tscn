@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://c10b65w5k0xkv"]
+
+[ext_resource type="PackedScene" uid="uid://3catevede0v0" path="res://31_entities/world/tiles/model/tile_grass_stair.glb" id="1_0s4ya"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_0s4ya"]
+data = PackedVector3Array(-1, -1, -0.6444, -1, 1, -1, -1, 1, -0.6444, -1, -1, -0.6444, -1, -1, -1, -1, 1, -1, -1, 1, -0.6444, -1, -1, 1, -1, -1, -0.6444, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, -1, 1, -1, -0.6444, 1, -1, 1, 1, 1, -0.6444, 1, -1, -1, 1, -1, -0.6444, 1, 1, -0.6444, 1, -1, -1, 1, 1, -0.6444, 1, 1, -1, -1, -1, -0.6444, 1, -1, 1, 1, -1, -0.6444, -1, -1, -0.6444, -1, -1, 1, 1, -1, 1, -1, -1, -1, -1, -1, -0.6444, 1, -1, -0.6444, -1, -1, -1, 1, -1, -0.6444, 1, -1, -1, 1, 1, -1, -1, 1, -0.6444, -1, 1, -1, 1, 1, -1, 1, 1, -0.6444, -1, 1, -0.6444, 1, -1, 1, -1, 1, -0.6444, 1, 1, -0.6444, 1, -1, 1, -1, -1, 1, -1, 1, -0.6444)
+
+[node name="tile_grass_stair" instance=ExtResource("1_0s4ya")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Ground_Stair" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground_Stair/StaticBody3D" index="0"]
+shape = SubResource("ConcavePolygonShape3D_0s4ya")

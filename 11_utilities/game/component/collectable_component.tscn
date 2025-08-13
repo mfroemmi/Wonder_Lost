@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dppy54ln7t2cf"]
-
-[ext_resource type="Script" uid="uid://b0d03lxd4b8iw" path="res://11_utilities/game/component/collectable_component.gd" id="1_didyv"]
-
-[node name="CollectableComponent" type="Node3D"]
-script = ExtResource("1_didyv")
