@@ -1,7 +1,5 @@
 extends Node3D
-
-signal toggle_inventory(external_inventory_owner)
-var isInventoryConnected = false
+class_name BanishStone
 
 @export var banishStone: Node3D
 @export var banishFog: FogVolume
@@ -10,7 +8,6 @@ var isInventoryConnected = false
 @export var isActivated: bool = false
 
 var inventory_data: InventoryData
-var inventory_type = INVENTORY_TYPE.BANISH
 
 @export var duration: float = 30.0
 var elapsed_time: float = 0.0
@@ -27,9 +24,6 @@ func _ready():
 	mouseCollision.input_event.connect(on_mouse_input_input_event)
 	mouseCollision.mouse_entered.connect(on_mouse_input_mouse_entered)
 	mouseCollision.mouse_exited.connect(on_mouse_input_mouse_exited)
-	
-	for node in get_tree().get_nodes_in_group("main"):
-		node.connectOwner()
 	
 	if isActivated:
 		activateBanishStone()
@@ -50,7 +44,7 @@ func _process(delta):
 	
 
 func player_interact():
-	toggle_inventory.emit(self)
+	GameManager.toggle_inventory.emit(self)
 
 
 func on_mouse_input_input_event(_camera, _event, _position, _normal, _shape_idx):

@@ -1,11 +1,9 @@
 extends StaticBody3D
-
-signal toggle_inventory(external_inventory_owner)
+class_name Chest
 
 @onready var animationPlayer: AnimationPlayer = $AnimationPlayer
 
 @export var inventory_data: InventoryData
-var inventory_type = INVENTORY_TYPE.CHEST
 
 var isBodyEntered: bool = false
 var isMouseEntered: bool = false
@@ -53,4 +51,4 @@ func _on_mouse_exited():
 	
 	
 func player_interact():
-	toggle_inventory.emit(self)
+	GameManager.toggle_inventory.emit(self)

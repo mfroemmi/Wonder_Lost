@@ -1,7 +1,5 @@
 extends CharacterBody3D
 
-signal toggle_inventory
-
 @export var inventory_data: InventoryData
 
 @onready var skelett: Node3D = $Skelett
@@ -11,12 +9,8 @@ const SPEED = 5.0
 
 
 func _ready():
-	CharacterManager.character = self
+	GameManager.game_data.player.init_character(self)
 
-
-func _unhandled_input(_event):
-	if Input.is_action_just_pressed("inventory"):
-		toggle_inventory.emit()
 		
 
 func _physics_process(_delta):

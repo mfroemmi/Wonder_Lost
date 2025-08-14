@@ -11,6 +11,11 @@ func _ready() -> void:
 
 
 func _process(_delta):
+	marker.visible = false
+	
+	if not GameManager.is_build_mode():
+		return
+	
 	var camera = get_viewport().get_camera_3d()
 	if not camera:
 		return
@@ -27,29 +32,22 @@ func _process(_delta):
 
 	var result = space_state.intersect_ray(query)
 
-	if result:
-		var collider = result.collider
-		if collider.is_in_group("placeable_for_objects"):
-			var hit_pos_world = result.position + Vector3(0.0, 0.1, 0.0)
-			var hit_cell = grid_map.local_to_map(grid_map.to_local(hit_pos_world))
-			
-			var char_pos = CharacterManager.get_character_position()
-			var char_cell = grid_map.local_to_map(grid_map.to_local(char_pos))
-			
-			var distance_cells = (hit_cell - char_cell).abs()
-			if distance_cells.x <= 9 and distance_cells.y <= 0 and distance_cells.z <= 9:
-				print("placeable for objects:", collider.name, ", hit_cell:", hit_cell, ", char_cell:", char_cell)
-				
-				marker.visible = true
-				marker.position = grid_map.map_to_local(hit_cell)
-			else:
-				marker.visible = false
-		else:
-			print("wrong group:", collider.name)
-			
-			marker.visible = false
-	else:
-		print("no hit")
-		
-		marker.visible = false
+	if not result:
+		return
+
+	var collider = result.collider
+	if not collider.is_in_group("placeable_for_objects"):
+		return
+
+	var hit_pos_world = result.position + Vector3(0.0, 0.1, 0.0)
+	var hit_cell = grid_map.local_to_map(grid_map.to_local(hit_pos_world))
 	
+	var char_pos = GameManager.game_data.player.get_position()
+	var char_cell = grid_map.local_to_map(grid_map.to_local(char_pos))
+	
+	var distance_cells = (hit_cell - char_cell).abs()
+	if distance_cells.x <= 9 and distance_cells.y <= 0 and distance_cells.z <= 9:
+		#print("placeable for objects:", collider.name, ", hit_cell:", hit_cell, ", char_cell:", char_cell)
+		
+		marker.visible = true
+		marker.position = grid_map.map_to_local(hit_cell)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://btcwjruvsyi8v"]
+[gd_scene load_steps=31 format=3 uid="uid://btcwjruvsyi8v"]
 
 [ext_resource type="Script" uid="uid://dklyrybej5unf" path="res://21_scenes/main/main.gd" id="1_fafct"]
 [ext_resource type="PackedScene" uid="uid://7vpbb7j0wes1" path="res://31_entities/world/environment/custom_world_environment.tscn" id="1_jbpyi"]
@@ -26,7 +26,8 @@
 [ext_resource type="Script" uid="uid://b82uj67ni3rxo" path="res://12_common/inventory/inventory_interface.gd" id="17_a264a"]
 [ext_resource type="PackedScene" uid="uid://dvrbdkn1plvwu" path="res://12_common/inventory/slot.tscn" id="19_m4ofp"]
 [ext_resource type="PackedScene" uid="uid://c06wj0486ahfs" path="res://31_entities/objects/banish_stone/banish_stone_area.tscn" id="19_xnwlh"]
-[ext_resource type="PackedScene" uid="uid://d4m5olm4gyd37" path="res://41_ui/banish_stone/banish_stone_panel.tscn" id="24_pusqf"]
+[ext_resource type="PackedScene" uid="uid://d4m5olm4gyd37" path="res://41_ui/banish_stone/banish_stone_inventory.tscn" id="24_pusqf"]
+[ext_resource type="PackedScene" uid="uid://dhnl3ilmkwb5a" path="res://41_ui/chest/chest_inventory.tscn" id="26_38bgp"]
 
 [sub_resource type="Resource" id="Resource_vxbg6"]
 script = ExtResource("11_c5465")
@@ -205,7 +206,7 @@ offset_top = 30.0
 offset_right = 70.0
 offset_bottom = 70.0
 
-[node name="ExternalInventory" parent="UI/InventoryInterface" instance=ExtResource("15_2wl7j")]
+[node name="ChestInventory" parent="UI/InventoryInterface" instance=ExtResource("26_38bgp")]
 visible = false
 layout_mode = 0
 offset_left = 1000.0
@@ -213,7 +214,7 @@ offset_top = 30.0
 offset_right = 1040.0
 offset_bottom = 70.0
 
-[node name="BanishStonePanel" parent="UI/InventoryInterface" instance=ExtResource("24_pusqf")]
+[node name="BanishStoneInventory" parent="UI/InventoryInterface" instance=ExtResource("24_pusqf")]
 visible = false
 layout_mode = 0
 offset_left = 1000.0

@@ -4,13 +4,10 @@ extends Node3D
 @onready var inventory_interface = $UI/InventoryInterface
 
 func _ready():
-	stone_buddy.toggle_inventory.connect(on_toggle_inventory_interface)
-	inventory_interface.set_player_inventory_data(stone_buddy.inventory_data)
-	
-	for node in get_tree().get_nodes_in_group("external_inventory"):
-		node.toggle_inventory.connect(func(external_inventory_owner):
-			on_toggle_inventory_interface(external_inventory_owner)
+	GameManager.toggle_inventory.connect(func(external_inventory_owner):
+		on_toggle_inventory_interface(external_inventory_owner)
 		)
+	inventory_interface.set_player_inventory_data(stone_buddy.inventory_data)
 
 
 func on_toggle_inventory_interface(external_inventory_owner = null):
@@ -33,12 +30,3 @@ func _on_inventory_interface_drop_slot_data(slot_data: SlotData):
 		var scene = slot_data.item_data.placeable_scene.instantiate()
 		add_child(scene)
 		scene.global_position = stone_buddy.global_position
-
-func connectOwner():
-	for node in get_tree().get_nodes_in_group("banish_stone_panel"):
-		if node.isInventoryConnected == false:
-			node.isInventoryConnected = true
-
-			node.toggle_inventory.connect(func(external_inventory_owner):
-				on_toggle_inventory_interface(external_inventory_owner)
-			)
