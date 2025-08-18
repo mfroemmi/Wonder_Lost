@@ -24,9 +24,7 @@ func on_timer_timeout():
 		
 		# Find spawn point with ray-casting intersection
 		if $RayCast3D.is_colliding():
-			var object_name = $RayCast3D.get_collider().name
 			if $RayCast3D.get_collider().is_in_group("spawn_collider"):
-				print(object_name + " is in group 'spawn_collider'")
 				
 				# Spawn object on collider position
 				var spawn_position = $RayCast3D.get_collision_point()
@@ -35,6 +33,4 @@ func on_timer_timeout():
 				
 				item.global_position = spawn_position
 				item.rotate(Vector3.UP, randf_range(0, 360))
-			else:
-				print(object_name + " is not in group 'spawn_collider'")
 		

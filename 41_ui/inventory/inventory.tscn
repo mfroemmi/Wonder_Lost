@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7vf6qkul3k7h"]
+
+[ext_resource type="Script" uid="uid://cvo1b8e4wfxex" path="res://41_ui/inventory/inventory.gd" id="1_pws5p"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_giavu"]
+bg_color = Color(1, 1, 1, 0.137255)
+
+[node name="Inventory" type="PanelContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_giavu")
+script = ExtResource("1_pws5p")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="ItemGrid" type="GridContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+columns = 6

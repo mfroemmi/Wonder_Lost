@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://bjvg5d08hd17n"]
+
+[ext_resource type="Script" uid="uid://bkox537w2pyt1" path="res://12_common/inventory/item_data.gd" id="1_qhmf6"]
+[ext_resource type="Texture2D" uid="uid://bom50il0cxg8q" path="res://31_entities/items/gem/resources/gem_item.png" id="2_ynq6b"]
+
+[resource]
+script = ExtResource("1_qhmf6")
+name = "Gem"
+description = ""
+stackable = true
+placeable = false
+texture = ExtResource("2_ynq6b")

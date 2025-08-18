@@ -44,7 +44,7 @@ func _process(delta):
 	
 
 func player_interact():
-	GameManager.toggle_inventory.emit(self)
+	Signals.toggle_inventory.emit(self)
 
 
 func on_mouse_input_input_event(_camera, _event, _position, _normal, _shape_idx):

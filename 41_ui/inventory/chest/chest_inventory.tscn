@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhnl3ilmkwb5a"]
+
+[ext_resource type="Script" uid="uid://c1ruq6wp5f6j7" path="res://41_ui/inventory/chest/chest_inventory.gd" id="1_3s86p"]
+[ext_resource type="PackedScene" uid="uid://b7vf6qkul3k7h" path="res://41_ui/inventory/inventory.tscn" id="1_6ty3b"]
+
+[node name="ChestInventory" type="PanelContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_3s86p")
+
+[node name="Inventory" parent="." instance=ExtResource("1_6ty3b")]
+layout_mode = 2

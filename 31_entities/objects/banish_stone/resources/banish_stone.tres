@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://bekjqf8pk4c0c"]
+
+[ext_resource type="Script" uid="uid://bkox537w2pyt1" path="res://12_common/inventory/item_data.gd" id="1_ffd7n"]
+[ext_resource type="PackedScene" uid="uid://c06wj0486ahfs" path="res://31_entities/objects/banish_stone/banish_stone_area.tscn" id="1_sois6"]
+[ext_resource type="Texture2D" uid="uid://ba82eevl0g6o" path="res://31_entities/objects/banish_stone/resources/banish_stone.png" id="2_4nran"]
+
+[resource]
+script = ExtResource("1_ffd7n")
+name = "Banish Stone"
+description = ""
+stackable = true
+placeable = true
+placeable_scene = ExtResource("1_sois6")
+texture = ExtResource("2_4nran")

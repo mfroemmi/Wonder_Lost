@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 GameManager="*res://11_utilities/game/manager/game_manager.gd"
+Signals="*res://11_utilities/signals.gd"
 
 [display]
 
@@ -41,6 +42,7 @@ import/fbx/enabled=false
 [global_group]
 
 placeable_for_objects=""
+spawn_collider=""
 
 [input]
 

@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjs1qmfy7w7l8"]
+
+[ext_resource type="PackedScene" uid="uid://cugav2mhb8ns4" path="res://31_entities/world/tiles/model/tile_grass_block.glb" id="1_7qalu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7qalu"]
+albedo_color = Color(0.835294, 0.796078, 0.705882, 1)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_pmw0m"]
+data = PackedVector3Array(-1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 1, 1)
+
+[node name="tile_grass_block" instance=ExtResource("1_7qalu")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="Front_Wall" parent="." index="0"]
+visible = false
+
+[node name="Front" parent="." index="1"]
+visible = false
+
+[node name="Back" parent="." index="2"]
+visible = false
+
+[node name="Right_Wall" parent="." index="3"]
+visible = false
+
+[node name="Right" parent="." index="4"]
+visible = false
+
+[node name="Left_Wall" parent="." index="5"]
+visible = false
+
+[node name="Left" parent="." index="6"]
+visible = false
+
+[node name="Stone_1" parent="." index="7"]
+visible = false
+
+[node name="Stone_2" parent="." index="8"]
+visible = false
+
+[node name="Block" parent="." index="9"]
+surface_material_override/1 = SubResource("StandardMaterial3D_7qalu")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Block" index="0" groups=["placeable_for_objects", "spawn_collider"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Block/StaticBody3D" index="0"]
+shape = SubResource("ConcavePolygonShape3D_pmw0m")
+
+[node name="Back_Wall" parent="." index="10"]
+visible = false

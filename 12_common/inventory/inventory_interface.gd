@@ -1,7 +1,5 @@
 extends Control
 
-signal drop_slot_data(slot_data: SlotData)
-
 var grabbed_slot_data: SlotData
 var external_inventory_owner
 
@@ -42,6 +40,7 @@ func clear_external_inventory():
 		inventory_data.inventory_interact.disconnect(on_inventory_interact)
 		
 		if external_inventory_owner is Chest:
+			external_inventory_owner.close_chest()
 			chest_inventory.clear_inventory_owner(external_inventory_owner)
 			chest_inventory.hide()
 		elif external_inventory_owner is BanishStone:
@@ -85,7 +84,7 @@ func _on_gui_input(event):
 		if grabbed_slot_data.item_data.placeable:
 			match event.button_index:
 				MOUSE_BUTTON_LEFT:
-					drop_slot_data.emit(grabbed_slot_data)
+					Signals.drop_slot_data.emit(grabbed_slot_data)
 					grabbed_slot_data = null
 			
 			update_grabbed_slot()

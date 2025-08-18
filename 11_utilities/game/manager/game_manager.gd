@@ -1,7 +1,5 @@
 extends Node
 
-signal toggle_inventory(external_inventory_owner)
-
 enum GameMode {
 	NORMAL,
 	INVENTORY,
@@ -26,9 +24,10 @@ func _ready() -> void:
 
 func _unhandled_input(_event):
 	if Input.is_action_just_pressed("inventory"):
-		toggle_inventory.emit(null)
+		Signals.toggle_inventory.emit(null)
+		
 	if Input.is_action_just_pressed("toggle_build_mode"):
-		GameManager.toggle_build_mode()
+		Signals.toggle_build_mode.emit()
 
 
 # GameMode

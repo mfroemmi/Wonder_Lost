@@ -1,18 +1,15 @@
-extends StaticBody3D
+extends Node3D
 class_name Chest
-
-@onready var animationPlayer: AnimationPlayer = $AnimationPlayer
 
 @export var inventory_data: InventoryData
 
 var isBodyEntered: bool = false
-var isMouseEntered: bool = false
 var isChestOpened: bool = false
 
 func _ready():
-	$CollisionArea3D.body_entered.connect(on_body_entered)
-	$CollisionArea3D.body_exited.connect(on_body_exited)
-
+	$Area3D.body_entered.connect(on_body_entered)
+	$Area3D.body_exited.connect(on_body_exited)
+	
 
 func on_body_entered(_other_body: Node3D):
 	print("on_body_entered")
@@ -22,33 +19,16 @@ func on_body_entered(_other_body: Node3D):
 func on_body_exited(_other_body: Node3D):
 	print("on_body_exited")
 	isBodyEntered = false
+
+
+func close_chest():
 	if isChestOpened:
 		isChestOpened = false
-		animationPlayer.play("close")
-		player_interact()
-		
 
-func _on_input_event(_camera, event, _position, _normal, _shape_idx):
-	if (event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT) and isMouseEntered and isBodyEntered:
-		if isChestOpened:
-			isChestOpened = false
-			animationPlayer.play("close")
-		else:
+
+func _on_static_body_3d_input_event(_camera: Node, _event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
+	if (_event.is_pressed() and _event.button_index == MOUSE_BUTTON_LEFT) and isBodyEntered:
+		if not isChestOpened:
 			isChestOpened = true
-			animationPlayer.play("open")
-		
-		player_interact()
-		
-
-func _on_mouse_entered():
-	print("on_mouse_entered")
-	isMouseEntered = true
-		
-
-func _on_mouse_exited():
-	print("on_mouse_exited")
-	isMouseEntered = false
-	
-	
-func player_interact():
-	GameManager.toggle_inventory.emit(self)
+			
+			Signals.toggle_inventory.emit(self)

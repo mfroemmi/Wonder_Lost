@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="BuildInventoryData" load_steps=5 format=3 uid="uid://b7fv2ek4v0hpv"]
+
+[ext_resource type="Script" uid="uid://dgnamemlmdedx" path="res://12_common/build_mode/build_mode_data.gd" id="1_j83le"]
+[ext_resource type="Script" uid="uid://dk2t48ujgm4g1" path="res://12_common/build_mode/object_slot_data.gd" id="2_rytwv"]
+[ext_resource type="Resource" uid="uid://blyvqyt8eqot6" path="res://31_entities/objects/chest/resources/chest_object.tres" id="3_rytwv"]
+
+[sub_resource type="Resource" id="Resource_o05wi"]
+script = ExtResource("2_rytwv")
+object_data = ExtResource("3_rytwv")
+metadata/_custom_type_script = "uid://dk2t48ujgm4g1"
+
+[resource]
+script = ExtResource("1_j83le")
+slot_datas = Array[ExtResource("2_rytwv")]([SubResource("Resource_o05wi")])
+metadata/_custom_type_script = "uid://dgnamemlmdedx"
