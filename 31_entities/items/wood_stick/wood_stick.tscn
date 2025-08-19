@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=4 uid="uid://b0r5vk50kpx5o"]
+[gd_scene load_steps=12 format=4 uid="uid://b0r5vk50kpx5o"]
 
 [ext_resource type="PackedScene" uid="uid://b32i62cqg2k8h" path="res://31_entities/items/wood_stick/model/wood_stick.glb" id="1_cj5xx"]
 [ext_resource type="PackedScene" uid="uid://dppy54ln7t2cf" path="res://11_utilities/game/component/collectable/collectable_component.tscn" id="2_s3rq6"]
 [ext_resource type="Material" uid="uid://duki6bt6fyfcw" path="res://02_materials/collectable_outline_mesh.tres" id="3_4pi7n"]
 [ext_resource type="Resource" uid="uid://pbns8cn1vios" path="res://31_entities/items/wood_stick/resources/wood_stick_item.tres" id="3_w0u3w"]
 [ext_resource type="Script" uid="uid://011jn2a0evck" path="res://12_common/inventory/slot_data.gd" id="4_83mo3"]
+[ext_resource type="PackedScene" uid="uid://ymanwxy4n8th" path="res://11_utilities/game/component/mouse_collision/mouse_collision_component.tscn" id="6_4hgbd"]
+[ext_resource type="PackedScene" uid="uid://c2fktx7vnt4p3" path="res://11_utilities/game/component/character_collision/character_collision_component.tscn" id="7_ua44a"]
 
 [sub_resource type="Resource" id="Resource_oy1ud"]
 script = ExtResource("4_83mo3")
@@ -33,10 +35,10 @@ radius = 3.5
 [node name="WoodStick" instance=ExtResource("1_cj5xx")]
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
 
-[node name="CollectableComponent" parent="." index="0" node_paths=PackedStringArray("outlineMesh", "mouseCollision", "bodyCollision") instance=ExtResource("2_s3rq6")]
+[node name="CollectableComponent" parent="." index="0" node_paths=PackedStringArray("outlineMesh", "mouse_collision", "character_collision") instance=ExtResource("2_s3rq6")]
 outlineMesh = NodePath("../Stick/MeshInstance3D")
-mouseCollision = NodePath("../Area3DMouseCollision")
-bodyCollision = NodePath("../CollisionArea3D")
+mouse_collision = NodePath("../MouseCollisionComponent")
+character_collision = NodePath("../CharacterCollisionComponent")
 slot_data = SubResource("Resource_oy1ud")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Stick" index="0"]
@@ -44,18 +46,14 @@ visible = false
 mesh = SubResource("ArrayMesh_26ofq")
 surface_material_override/0 = ExtResource("3_4pi7n")
 
-[node name="Area3DMouseCollision" type="Area3D" parent="." index="3"]
-collision_layer = 4
-collision_mask = 2
+[node name="MouseCollisionComponent" parent="." index="3" instance=ExtResource("6_4hgbd")]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3DMouseCollision" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MouseCollisionComponent" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0498268, 0.0614143, 0)
 shape = SubResource("BoxShape3D_r8boa")
 
-[node name="CollisionArea3D" type="Area3D" parent="." index="4"]
-collision_layer = 0
-collision_mask = 2
+[node name="CharacterCollisionComponent" parent="." index="4" instance=ExtResource("7_ua44a")]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CollisionArea3D" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterCollisionComponent" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CylinderShape3D_t45xh")

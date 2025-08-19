@@ -3,8 +3,6 @@ extends Node3D
 @export var marker: MeshInstance3D
 @export var grid_map: GridMap
 
-var isBodyEntered: bool = false
-
 
 func _ready() -> void:
 	marker.visible = false

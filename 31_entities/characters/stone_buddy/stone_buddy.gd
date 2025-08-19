@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+class_name Character
+
 @export var inventory_data: InventoryData
 
 @onready var skelett: Node3D = $Skelett
@@ -10,7 +12,6 @@ const SPEED = 5.0
 
 func _ready():
 	GameManager.game_data.player.init_character(self)
-
 		
 
 func _physics_process(_delta):

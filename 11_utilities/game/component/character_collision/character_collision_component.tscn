@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2fktx7vnt4p3"]
+
+[ext_resource type="Script" uid="uid://dovqiejlckt3b" path="res://11_utilities/game/component/character_collision/character_collision_component.gd" id="1_k4ef4"]
+
+[node name="CharacterCollisionComponent" type="Area3D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_k4ef4")

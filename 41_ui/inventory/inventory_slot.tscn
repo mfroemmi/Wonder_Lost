@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvrbdkn1plvwu"]
+
+[ext_resource type="Script" uid="uid://dnjh7hthog53e" path="res://41_ui/inventory/inventory_slot.gd" id="1_l7to5"]
+[ext_resource type="Texture2D" uid="uid://muuaaya81rs8" path="res://31_entities/items/labels/placeable_label.png" id="2_aud8h"]
+
+[node name="InventorySlot" type="PanelContainer"]
+custom_minimum_size = Vector2(128, 128)
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_l7to5")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_right = 8
+
+[node name="QuantityLabel" type="Label" parent="MarginContainer2"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 32
+text = "x99"
+
+[node name="MarginContainer3" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="PlaceableLabel" type="TextureRect" parent="MarginContainer3"]
+visible = false
+layout_mode = 2
+texture = ExtResource("2_aud8h")
+expand_mode = 1
+stretch_mode = 5
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

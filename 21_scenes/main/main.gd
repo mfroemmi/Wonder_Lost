@@ -35,6 +35,11 @@ func on_toggle_build_mode():
 		
 	GameManager.toggle_build_mode()
 	build_mode_interface.visible = not build_mode_interface.visible
+	
+	if GameManager.is_build_mode():
+		build_mode_interface.set_build_mode_data()
+	else:
+		build_mode_interface.clear_build_mode_data()
 
 
 func on_drop_slot_data(slot_data: SlotData):

@@ -3,53 +3,36 @@ extends Node3D
 @onready var meshInstance3D: MeshInstance3D = $Grass_000/MeshInstance3D
 @onready var grass: MeshInstance3D = $Grass_000
 @onready var timer: Timer = $Timer
+
+@export var mouse_collision: MouseCollisionComponent
+@export var character_collision: CharacterCollisionComponent
 @export var slot_data: SlotData
 
-var isBodyEntered: bool = false
-var isMouseEntered: bool = false
 
-var other_body: Node3D
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	$CollisionArea3D.body_entered.connect(on_body_entered)
-	$CollisionArea3D.body_exited.connect(on_body_exited)
-	
+	mouse_collision.mouse_collision.connect(on_mouse_collision)
+	mouse_collision.mouse_input.connect(on_mouse_input)
+	character_collision.character_collision.connect(on_character_collision)
 	timer.timeout.connect(on_timer_timeout)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
-
-
-func _on_area_3d_mouse_collision_mouse_entered():
-	if isBodyEntered:
-		isMouseEntered = true
-		meshInstance3D.visible = true
-
-
-func _on_area_3d_mouse_collision_mouse_exited():
-	isMouseEntered = false
-	meshInstance3D.visible = false
+func on_mouse_collision(is_mouse_entered: bool):
+	if character_collision.is_character_entered:
+		meshInstance3D.visible = is_mouse_entered
 	
+
+func on_character_collision(is_character_entered: bool):
+	if not is_character_entered:
+		meshInstance3D.visible = false
+
 	
-func _on_area_3d_mouse_collision_input_event(_camera, event, _position, _normal, _shape_idx):
-	if (event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT) and isMouseEntered and grass.visible:
+func on_mouse_input(event):
+	if (event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT) and character_collision.is_character_entered and mouse_collision.is_mouse_entered and grass.visible:
 		slot_data.quantity = 1
-		other_body.inventory_data.pick_up_slot_data(slot_data)
+		character_collision.character.inventory_data.pick_up_slot_data(slot_data)
 		grass.visible = false
 		timer.start()
 
-
-func on_body_entered(_other_body: Node3D):
-	isBodyEntered = true
-	other_body = _other_body
-	
-	
-func on_body_exited(_other_body: Node3D):
-	isBodyEntered = false
-	other_body = null
 
 func on_timer_timeout():
 	grass.visible = true

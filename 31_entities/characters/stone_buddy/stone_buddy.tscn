@@ -2,6 +2,10 @@
 
 [ext_resource type="Script" uid="uid://oywvshvhi8d4" path="res://31_entities/characters/stone_buddy/stone_buddy.gd" id="1_lss71"]
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nyagb"]
+radius = 1.16599
+height = 5.6859
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w1556"]
 resource_name = "Stone"
 cull_mode = 2
@@ -317,15 +321,15 @@ _data = {
 &"run": SubResource("Animation_q1y8k")
 }
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nyagb"]
-radius = 1.16599
-height = 5.6859
-
 [node name="StoneBuddy" type="CharacterBody3D"]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
 collision_layer = 2
 collision_mask = 13
 script = ExtResource("1_lss71")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.802, -0.125)
+shape = SubResource("CapsuleShape3D_nyagb")
 
 [node name="Skelett" type="Node3D" parent="."]
 transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 0, 1.08372, 0)
@@ -401,10 +405,6 @@ libraries = {
 &"": SubResource("AnimationLibrary_nc05c")
 }
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.80192, -0.124944)
-shape = SubResource("CapsuleShape3D_nyagb")
-
 [node name="SpringArmPivot" type="Node3D" parent="."]
 
 [node name="SpringArm3D" type="SpringArm3D" parent="SpringArmPivot"]
@@ -419,3 +419,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.5, 1)
 light_energy = 0.5
 light_specular = 0.2
 omni_range = 10.0
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.80192, -0.124944)
+shape = SubResource("CapsuleShape3D_nyagb")

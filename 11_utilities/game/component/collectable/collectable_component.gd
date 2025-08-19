@@ -1,45 +1,29 @@
 extends Node3D
 
 @export var outlineMesh: MeshInstance3D
-@export var mouseCollision: CollisionObject3D
-@export var bodyCollision: Area3D
+@export var mouse_collision: MouseCollisionComponent
+@export var character_collision: CharacterCollisionComponent
 @export var slot_data: SlotData
 
-var isMouseEntered: bool = false
-var other_body: Node3D
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	bodyCollision.body_entered.connect(on_body_entered)
-	bodyCollision.body_exited.connect(on_body_exited)
+	mouse_collision.mouse_collision.connect(on_mouse_collision)
+	mouse_collision.mouse_input.connect(on_mouse_input)
+	character_collision.character_collision.connect(on_character_collision)
+
+
+func on_mouse_collision(is_mouse_entered: bool):
+	if character_collision.is_character_entered:
+		outlineMesh.visible = is_mouse_entered
+
+
+func on_character_collision(is_character_entered: bool):
+	if not is_character_entered:
+		outlineMesh.visible = false
+
 	
-	mouseCollision.input_event.connect(on_area_3d_mouse_collision_input_event)
-	mouseCollision.mouse_entered.connect(on_area_3d_mouse_entered)
-	mouseCollision.mouse_exited.connect(on_area_3d_mouse_exited)
-
-
-func on_body_entered(_other_body: Node3D):
-	other_body = _other_body
-	
-	
-func on_body_exited(_other_body: Node3D):
-	other_body = null
-
-
-func on_area_3d_mouse_entered():
-	if other_body:
-		isMouseEntered = true
-		outlineMesh.visible = true
-
-
-func on_area_3d_mouse_exited():
-	isMouseEntered = false
-	outlineMesh.visible = false
-	
-	
-func on_area_3d_mouse_collision_input_event(_camera, event, _position, _normal, _shape_idx):
-	if (event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT) and isMouseEntered:
+func on_mouse_input(event):
+	if (event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT) and character_collision.is_character_entered and mouse_collision.is_mouse_entered:
 		slot_data.quantity = 1
-		if other_body.inventory_data.pick_up_slot_data(slot_data):
+		if character_collision.character.inventory_data.pick_up_slot_data(slot_data):
 			owner.queue_free()

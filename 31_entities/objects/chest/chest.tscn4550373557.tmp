@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://7ecyw24x8ek3"]
+
+[ext_resource type="Script" uid="uid://xl703ccdr1ii" path="res://31_entities/objects/chest/chest.gd" id="1_mjvvg"]
+[ext_resource type="PackedScene" uid="uid://21jgxgol0p82" path="res://31_entities/objects/chest/model/chest.glb" id="1_wvrnq"]
+[ext_resource type="Resource" uid="uid://cmvt30pnxxsbb" path="res://12_common/inventory/inventory_templates/chest_inventory.tres" id="3_ml54p"]
+[ext_resource type="PackedScene" uid="uid://c2fktx7vnt4p3" path="res://11_utilities/game/component/character_collision_component.tscn" id="4_2pco8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wvrnq"]
+size = Vector3(1.92487, 0.952026, 0.990234)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_nkusr"]
+height = 0.997192
+radius = 3.1748
+
+[node name="Chest" node_paths=PackedStringArray("character_collision_component") instance=ExtResource("1_wvrnq")]
+script = ExtResource("1_mjvvg")
+inventory_data = ExtResource("3_ml54p")
+character_collision_component = NodePath("CharacterCollisionComponent")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="7"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00918579, 0.484952, 0.00488281)
+shape = SubResource("BoxShape3D_wvrnq")
+
+[node name="CharacterCollisionComponent" parent="." index="8" instance=ExtResource("4_2pco8")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterCollisionComponent" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.503169, 0)
+shape = SubResource("CylinderShape3D_nkusr")
+
+[connection signal="input_event" from="StaticBody3D" to="." method="_on_static_body_3d_input_event"]
