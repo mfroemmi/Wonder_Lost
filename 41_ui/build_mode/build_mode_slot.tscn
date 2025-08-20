@@ -44,11 +44,31 @@ text = "Name"
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer2/VBoxContainer"]
 layout_mode = 2
 
-[node name="Item1" type="Label" parent="HBoxContainer/MarginContainer2/VBoxContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/MarginContainer2/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Item1TextureRect" type="TextureRect" parent="HBoxContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Item1Label" type="Label" parent="HBoxContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "Item 1"
 
-[node name="Item2" type="Label" parent="HBoxContainer/MarginContainer2/VBoxContainer/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer/MarginContainer2/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Item2TextureRect" type="TextureRect" parent="HBoxContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Item2Label" type="Label" parent="HBoxContainer/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 text = "Item 2"
 

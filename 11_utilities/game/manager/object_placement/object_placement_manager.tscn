@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cdjeixcaqy0gf"]
+[gd_scene load_steps=5 format=3 uid="uid://cdjeixcaqy0gf"]
 
 [ext_resource type="Script" uid="uid://bgeg8hd00d615" path="res://11_utilities/game/manager/object_placement/object_placement_manager.gd" id="1_j0nhm"]
 
@@ -8,11 +8,20 @@
 transparency = 1
 albedo_color = Color(0.317647, 1, 0.635294, 0.686275)
 
-[node name="ObjectPlacementManager" type="Node3D" node_paths=PackedStringArray("marker")]
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_bxiqc"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[node name="ObjectPlacementManager" type="Node3D" node_paths=PackedStringArray("marker", "marker_collision_shape")]
 script = ExtResource("1_j0nhm")
 marker = NodePath("Marker")
+marker_collision_shape = NodePath("Marker/Area3D/CollisionShape3D")
 
 [node name="Marker" type="MeshInstance3D" parent="."]
 visible = false
 mesh = SubResource("BoxMesh_j0nhm")
 surface_material_override/0 = SubResource("StandardMaterial3D_d76pt")
+
+[node name="Area3D" type="Area3D" parent="Marker"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Marker/Area3D"]
+shape = SubResource("ConcavePolygonShape3D_bxiqc")

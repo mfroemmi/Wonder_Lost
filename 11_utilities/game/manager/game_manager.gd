@@ -3,12 +3,15 @@ extends Node
 enum GameMode {
 	NORMAL,
 	INVENTORY,
-	BUILD
+	BUILD,
+	OBJECT_PLACEMENT
 }
 
+# Allowed transitions: key = current mode, values = target modes
 var allowed_transitions = {
 	GameMode.NORMAL: [GameMode.BUILD, GameMode.INVENTORY],
-	GameMode.BUILD: [GameMode.NORMAL],
+	GameMode.BUILD: [GameMode.NORMAL, GameMode.OBJECT_PLACEMENT],
+	GameMode.OBJECT_PLACEMENT: [GameMode.NORMAL],
 	GameMode.INVENTORY: [GameMode.NORMAL]
 }
 
@@ -28,6 +31,10 @@ func _unhandled_input(_event):
 		
 	if Input.is_action_just_pressed("toggle_build_mode"):
 		Signals.toggle_build_mode.emit()
+	
+	if Input.is_action_just_pressed("quit"):
+		if is_object_placement_mode():
+			Signals.toggle_object_placement_mode.emit(null)
 
 
 # GameMode
@@ -36,6 +43,13 @@ func toggle_build_mode():
 		set_mode(GameMode.NORMAL)
 	else:
 		set_mode(GameMode.BUILD)
+
+
+func toggle_object_placement_mode():
+	if is_object_placement_mode():
+		set_mode(GameMode.NORMAL)
+	else:
+		set_mode(GameMode.OBJECT_PLACEMENT)
 
 
 func toggle_inventory_mode():
@@ -55,6 +69,10 @@ func set_mode(target_mode: GameMode):
 
 func is_build_mode() -> bool:
 	return current_mode == GameMode.BUILD
+
+
+func is_object_placement_mode() -> bool:
+	return current_mode == GameMode.OBJECT_PLACEMENT
 
 
 func is_inventory_mode() -> bool:

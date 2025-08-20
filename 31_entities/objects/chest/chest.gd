@@ -7,7 +7,8 @@ class_name Chest
 var isChestOpened: bool = false
 
 func _ready():
-	pass
+	if inventory_data:
+		inventory_data = inventory_data.duplicate(true)
 
 
 func close_chest():

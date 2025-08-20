@@ -30,3 +30,8 @@ func set_quantity(value: int):
 	if quantity > 1 and not item_data.stackable:
 		quantity = 1
 		push_error("%s is not stackable, setting quantity to 1" % item_data.name)
+
+func get_item_count(ref_item: ItemData) -> int:
+	if item_data == ref_item:
+		return quantity
+	return 0

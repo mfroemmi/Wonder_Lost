@@ -4,8 +4,8 @@ const Slot = preload("res://41_ui/build_mode/build_mode_slot.tscn")
 
 @onready var item_grid: GridContainer = $MarginContainer/ItemGrid
 	
-func set_inventory_data(inventory_data: BuildModeData):
-	populate_item_grid(inventory_data)
+func set_inventory_data(build_mode_data: BuildModeData):
+	populate_item_grid(build_mode_data)
 	
 
 func populate_item_grid(build_mode_data: BuildModeData):

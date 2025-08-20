@@ -1,9 +1,10 @@
-[gd_resource type="Resource" script_class="BuildModeData" load_steps=10 format=3 uid="uid://b7fv2ek4v0hpv"]
+[gd_resource type="Resource" script_class="BuildModeData" load_steps=11 format=3 uid="uid://b7fv2ek4v0hpv"]
 
 [ext_resource type="Script" uid="uid://dgnamemlmdedx" path="res://12_common/build_mode/build_mode_data.gd" id="1_j83le"]
 [ext_resource type="Script" uid="uid://dk2t48ujgm4g1" path="res://12_common/build_mode/object_slot_data.gd" id="2_rytwv"]
 [ext_resource type="Resource" uid="uid://blyvqyt8eqot6" path="res://31_entities/objects/chest/resources/chest_object.tres" id="3_rytwv"]
 [ext_resource type="PackedScene" uid="uid://urwt5v8we383" path="res://31_entities/objects/banish_stone/banish_stone.tscn" id="4_bywn2"]
+[ext_resource type="Script" uid="uid://c50s22a3uvjfc" path="res://12_common/build_mode/object_item_stack.gd" id="4_io2pp"]
 [ext_resource type="Script" uid="uid://bdntfum3qmuqu" path="res://12_common/build_mode/object_data.gd" id="5_io2pp"]
 [ext_resource type="Texture2D" uid="uid://ba82eevl0g6o" path="res://31_entities/objects/banish_stone/resources/banish_stone.png" id="6_dx1y7"]
 
@@ -18,6 +19,7 @@ name = "Banish Stone"
 description = ""
 scene = ExtResource("4_bywn2")
 texture = ExtResource("6_dx1y7")
+required_items = Array[ExtResource("4_io2pp")]([])
 metadata/_custom_type_script = "uid://bdntfum3qmuqu"
 
 [sub_resource type="Resource" id="Resource_wklr1"]

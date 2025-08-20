@@ -64,5 +64,14 @@ func pick_up_slot_data(slot_data: SlotData) -> bool:
 			
 	return false
 
+
+func get_item_count(ref_item: ItemData) -> int:
+	var result: int = 0
+	for slot_data in slot_datas:
+		if slot_data:
+			result += slot_data.get_item_count(ref_item)
+	return result
+
+
 func on_slot_clicked(index: int, button: int):
 	inventory_interact.emit(self, index, button)
