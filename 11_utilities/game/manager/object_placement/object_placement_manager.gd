@@ -44,6 +44,7 @@ func _input(event):
 		objects_container.add_child(final_object)
 		final_object.global_position = object_scene.global_position
 		final_object.rotation = object_scene.rotation
+		Signals.object_is_placed.emit(object_data)
 		Signals.toggle_object_placement_mode.emit(null)
 
 	elif event is InputEventMouseButton and event.is_pressed():

@@ -3,9 +3,10 @@
 [ext_resource type="Shader" uid="uid://dy64kdhtq0u3o" path="res://12_common/shaders/water.gdshader" id="1_cf7lo"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_1cqb1"]
-noise_type = 3
+noise_type = 2
 seed = 10
 fractal_type = 2
+fractal_gain = 0.445
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ij0tf"]
 seamless = true
@@ -20,6 +21,7 @@ bump_strength = 6.0
 noise = SubResource("FastNoiseLite_1cqb1")
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_cf7lo"]
+fractal_type = 0
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_1cqb1"]
 seamless = true
@@ -37,6 +39,6 @@ shader_parameter/texture_normal = SubResource("NoiseTexture2D_ij0tf")
 shader_parameter/texture_normal2 = SubResource("NoiseTexture2D_xekf7")
 shader_parameter/wave_direction = Vector2(2, 0)
 shader_parameter/wave_direction2 = Vector2(2, 0)
-shader_parameter/time_scale = 0.025
+shader_parameter/time_scale = 0.04
 shader_parameter/noise_scale = 200.0
 shader_parameter/height_scale = 2.0

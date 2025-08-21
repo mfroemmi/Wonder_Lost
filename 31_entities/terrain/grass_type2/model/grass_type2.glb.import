@@ -3,18 +3,18 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://qrv36u87xk77"
-path="res://.godot/imported/grass_short.glb-43147dbaae07c070cc4a88f910698b4b.scn"
+uid="uid://dyj0027jjvx0k"
+path="res://.godot/imported/grass_type2.glb-8c277d37895896d8e69c6e8d0545efb9.scn"
 
 [deps]
 
-source_file="res://31_entities/items/grass/model/grass_short.glb"
-dest_files=["res://.godot/imported/grass_short.glb-43147dbaae07c070cc4a88f910698b4b.scn"]
+source_file="res://31_entities/terrain/grass_type2/model/grass_type2.glb"
+dest_files=["res://.godot/imported/grass_type2.glb-8c277d37895896d8e69c6e8d0545efb9.scn"]
 
 [params]
 
-nodes/root_type="Node3D"
-nodes/root_name="Scene Root"
+nodes/root_type=""
+nodes/root_name=""
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
@@ -33,5 +33,5 @@ animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={}
-gltf/naming_version=0
+gltf/naming_version=1
 gltf/embedded_image_handling=1

@@ -12,6 +12,7 @@ func _ready():
 	
 	Signals.drop_slot_data.connect(on_drop_slot_data)
 	Signals.place_object_slot_data.connect(on_place_object_slot_data)
+	Signals.object_is_placed.connect(on_object_is_placed)
 	
 	inventory_interface.set_player_inventory_data(character.inventory_data)
 
@@ -67,5 +68,9 @@ func on_drop_slot_data(slot_data: SlotData):
 
 
 func on_place_object_slot_data(object_slot_data: ObjectSlotData):
-	#TODO Purge items in character inventory
 	Signals.toggle_object_placement_mode.emit(object_slot_data)
+
+
+func on_object_is_placed(object_data: ObjectData):
+	for item_stack in object_data.required_items:
+		character.inventory_data.purge_items(item_stack.item, item_stack.amount)

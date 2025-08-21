@@ -35,3 +35,12 @@ func get_item_count(ref_item: ItemData) -> int:
 	if item_data == ref_item:
 		return quantity
 	return 0
+
+func purge_items(ref_item: ItemData, amount: int) -> int:
+	if item_data != ref_item:
+		return 0
+	
+	var removed := min(quantity, amount) as int
+	quantity -= removed
+	
+	return removed

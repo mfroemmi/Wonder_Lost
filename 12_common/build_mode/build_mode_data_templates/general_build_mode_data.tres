@@ -20,6 +20,7 @@ description = ""
 scene = ExtResource("4_bywn2")
 texture = ExtResource("6_dx1y7")
 required_items = Array[ExtResource("4_io2pp")]([])
+placeable = true
 metadata/_custom_type_script = "uid://bdntfum3qmuqu"
 
 [sub_resource type="Resource" id="Resource_wklr1"]

@@ -71,7 +71,19 @@ func get_item_count(ref_item: ItemData) -> int:
 		if slot_data:
 			result += slot_data.get_item_count(ref_item)
 	return result
-
+	
+	
+func purge_items(item: ItemData, amount: int):
+	var remaining: int = amount
+	for i in range(slot_datas.size()):
+		var slot_data = slot_datas[i]
+		if slot_data and remaining > 0:
+			var removed: int = slot_data.purge_items(item, remaining)
+			remaining -= removed
+			if slot_data.quantity == 0:
+				slot_datas[i] = null
+			inventory_updated.emit(self)
+			
 
 func on_slot_clicked(index: int, button: int):
 	inventory_interact.emit(self, index, button)

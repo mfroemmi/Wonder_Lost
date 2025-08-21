@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://btcwjruvsyi8v"]
+[gd_scene load_steps=28 format=3 uid="uid://btcwjruvsyi8v"]
 
 [ext_resource type="Script" uid="uid://dklyrybej5unf" path="res://21_scenes/main/main.gd" id="1_fafct"]
 [ext_resource type="PackedScene" uid="uid://7vpbb7j0wes1" path="res://31_entities/world/environment/custom_world_environment.tscn" id="1_jbpyi"]
@@ -8,18 +8,16 @@
 [ext_resource type="PackedScene" uid="uid://bfc6muihiuy8u" path="res://31_entities/items/shell/shell.tscn" id="3_0bgje"]
 [ext_resource type="PackedScene" uid="uid://r2og1xnaw5if" path="res://31_entities/world/grid_maps/stairs/stairs_grid_map.tscn" id="4_txufx"]
 [ext_resource type="PackedScene" uid="uid://bxptxteivbgjd" path="res://11_utilities/game/manager/item_spawn/item_spawn_manager.tscn" id="5_cbge5"]
-[ext_resource type="PackedScene" uid="uid://uqfry7sfeu2n" path="res://31_entities/items/grass/grass_normal.tscn" id="6_kcmh8"]
 [ext_resource type="PackedScene" uid="uid://pj8xpe8jmipf" path="res://31_entities/world/grid_maps/ground/sand_block_grid_map.tscn" id="7_38bgp"]
-[ext_resource type="PackedScene" uid="uid://qrv36u87xk77" path="res://31_entities/items/grass/model/grass_short.glb" id="7_lh7vv"]
 [ext_resource type="PackedScene" uid="uid://cr0nhrtt6cc2v" path="res://31_entities/world/grid_maps/ground/grass_block_grid_map.tscn" id="8_7jppm"]
 [ext_resource type="PackedScene" uid="uid://wjlxyxv8tbej" path="res://31_entities/world/water/Water.tscn" id="8_08icv"]
 [ext_resource type="PackedScene" uid="uid://0rd3dtxpev4o" path="res://31_entities/world/grid_maps/placeable_objects/placeable_object_grid_map.tscn" id="8_38bgp"]
-[ext_resource type="PackedScene" uid="uid://tk2eflh7qtvg" path="res://31_entities/items/grass/grass_short_plane.tscn" id="8_lqtem"]
 [ext_resource type="PackedScene" uid="uid://dh5aln7gpogpm" path="res://31_entities/world/fog/fog.tscn" id="8_v34c6"]
 [ext_resource type="PackedScene" uid="uid://b0r5vk50kpx5o" path="res://31_entities/items/wood_stick/wood_stick.tscn" id="9_0vct4"]
 [ext_resource type="PackedScene" uid="uid://dv3h2niliheuc" path="res://31_entities/items/grass/grass_collectable.tscn" id="9_5tdkx"]
 [ext_resource type="PackedScene" uid="uid://cdjeixcaqy0gf" path="res://11_utilities/game/manager/object_placement/object_placement_manager.tscn" id="11_p0lnu"]
 [ext_resource type="PackedScene" uid="uid://b7vf6qkul3k7h" path="res://41_ui/inventory/inventory.tscn" id="15_2wl7j"]
+[ext_resource type="PackedScene" uid="uid://wri5ffrwt0dy" path="res://31_entities/terrain/grass_type2/grass_type2.tscn" id="15_71wyj"]
 [ext_resource type="Resource" uid="uid://dpv42mt3mtcg3" path="res://12_common/inventory/inventory_data_templates/player_inventory_data.tres" id="15_a6wpl"]
 [ext_resource type="Script" uid="uid://b82uj67ni3rxo" path="res://12_common/inventory/inventory_interface.gd" id="17_a264a"]
 [ext_resource type="PackedScene" uid="uid://dvrbdkn1plvwu" path="res://41_ui/inventory/inventory_slot.tscn" id="19_m4ofp"]
@@ -57,20 +55,11 @@ inventory_data = ExtResource("15_a6wpl")
 
 [node name="Items" type="Node3D" parent="Entities"]
 
-[node name="GrassNormal" parent="Entities/Items" instance=ExtResource("6_kcmh8")]
-transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, -3.31159, 0, 4)
-
-[node name="GrassShort" parent="Entities/Items" instance=ExtResource("7_lh7vv")]
-transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, -2.85791, 0, 4.42808)
-
-[node name="GrassShortPlane" parent="Entities/Items" instance=ExtResource("8_lqtem")]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -2.13643, 0, 3.43925)
-
 [node name="GrassCollectable" parent="Entities/Items" instance=ExtResource("9_5tdkx")]
-transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, -1.51341, 0, 4.04199)
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, -5.66518, 0, 4.83665)
 
 [node name="GrassCollectable2" parent="Entities/Items" instance=ExtResource("9_5tdkx")]
-transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, -2.81351, 0, 3.64591)
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, -6.0942, 0, 3.64591)
 
 [node name="Objects" type="Node3D" parent="Entities"]
 
@@ -87,6 +76,48 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -3.5)
 
 [node name="Rocks" parent="Entities/Terrain" instance=ExtResource("1_jrx1x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -11.5697)
+
+[node name="Grass" type="Node3D" parent="Entities/Terrain"]
+
+[node name="GrassContainer1" type="Node3D" parent="Entities/Terrain/Grass"]
+
+[node name="GrassType2" parent="Entities/Terrain/Grass/GrassContainer1" instance=ExtResource("15_71wyj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.19114, 0.00769644, 3.06069)
+
+[node name="GrassType3" parent="Entities/Terrain/Grass/GrassContainer1" instance=ExtResource("15_71wyj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.56709, 0.0153929, 4.12139)
+
+[node name="GrassType4" parent="Entities/Terrain/Grass/GrassContainer1" instance=ExtResource("15_71wyj")]
+transform = Transform3D(-0.0555253, 0, -0.998457, 0, 1, 0, 0.998457, 0, -0.0555253, -6.42216, 0.0307858, 5.21081)
+
+[node name="GrassType5" parent="Entities/Terrain/Grass/GrassContainer1" instance=ExtResource("15_71wyj")]
+transform = Transform3D(-0.0112048, 0, 0.999937, 0, 1, 0, -0.999937, 0, -0.0112048, -5.40129, 0.0153929, 3.80654)
+
+[node name="GrassType6" parent="Entities/Terrain/Grass/GrassContainer1" instance=ExtResource("15_71wyj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.42565, 0.0230893, 3.62808)
+
+[node name="GrassType7" parent="Entities/Terrain/Grass/GrassContainer1" instance=ExtResource("15_71wyj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.46037, 0.0384822, 4.97538)
+
+[node name="GrassContainer2" type="Node3D" parent="Entities/Terrain/Grass"]
+
+[node name="GrassType8" parent="Entities/Terrain/Grass/GrassContainer2" instance=ExtResource("15_71wyj")]
+transform = Transform3D(-0.00507893, 0, -0.999987, 0, 1, 0, 0.999987, 0, -0.00507893, 1.61012, 0.0558985, 7.29733)
+
+[node name="GrassType9" parent="Entities/Terrain/Grass/GrassContainer2" instance=ExtResource("15_71wyj")]
+transform = Transform3D(-0.00507893, 0, -0.999987, 0, 1, 0, 0.999987, 0, -0.00507893, 0.551343, 0.063595, 6.916)
+
+[node name="GrassType10" parent="Entities/Terrain/Grass/GrassContainer2" instance=ExtResource("15_71wyj")]
+transform = Transform3D(-0.998163, 0, 0.0605957, 0, 1, 0, -0.0605957, 0, -0.998163, -0.538799, 0.0789878, 7.0554)
+
+[node name="GrassType11" parent="Entities/Terrain/Grass/GrassContainer2" instance=ExtResource("15_71wyj")]
+transform = Transform3D(0.999981, 0, 0.00612601, 0, 1, 0, -0.00612601, 0, 0.999981, 0.860265, 0.063595, 8.08339)
+
+[node name="GrassType12" parent="Entities/Terrain/Grass/GrassContainer2" instance=ExtResource("15_71wyj")]
+transform = Transform3D(-0.00507893, 0, -0.999987, 0, 1, 0, 0.999987, 0, -0.00507893, 0.306847, 0.0712914, 9.05992)
+
+[node name="GrassType13" parent="Entities/Terrain/Grass/GrassContainer2" instance=ExtResource("15_71wyj")]
+transform = Transform3D(-0.00507893, 0, -0.999987, 0, 1, 0, 0.999987, 0, -0.00507893, -0.308253, 0.0866843, 8.01837)
 
 [node name="World" type="Node3D" parent="Entities"]
 
